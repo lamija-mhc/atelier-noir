@@ -34,6 +34,50 @@ document.addEventListener('DOMContentLoaded', () => {
     navbar.classList.toggle('active');
   });
 
-  console.log("JavaScript povezan!");
 
 
+function animateNumber(element, target) {
+  let current = 0;
+  const duration = 1000;
+  const stepTime = Math.max(10, duration / target);
+
+  const step = () => {
+    const increment = Math.ceil(target / (duration / stepTime));
+    current += increment;
+
+    if (current >= target) {
+      element.textContent = target.toLocaleString();
+    } else {
+      element.textContent = current.toLocaleString();
+      setTimeout(step, stepTime);
+    }
+  };
+
+  step();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const statsSection = document.querySelector(".stats-wrapper");
+  const stats = document.querySelectorAll(".stats-numbers strong");
+  let hasAnimated = false; // sprječava višestruko pokretanje
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+          stats.forEach(stat => {
+            const target = parseInt(stat.textContent.replace(/\s/g, ""));
+            animateNumber(stat, target);
+          });
+          hasAnimated = true;
+          observer.unobserve(statsSection); // prestani pratiti kad animirano
+        }
+      });
+    },
+    {
+      threshold: 0.5 // 50% elementa mora biti u vidljivom dijelu
+    }
+  );
+
+  observer.observe(statsSection);
+});
