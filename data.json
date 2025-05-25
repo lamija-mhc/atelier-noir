@@ -1,0 +1,80 @@
+{
+  "preporuke": [
+    {
+      "naziv": "Espresso Noir",
+      "opis": "Intenzivan i punog ukusa.",
+      "cijena": "$12.99",
+      "slika": "images/espresso.png"
+    },
+    {
+      "naziv": "Cappuccino Art",
+      "opis": "Savršena ravnoteža kafe i mlijeka.",
+      "cijena": "$10.99",
+      "slika": "images/cappuccino.png"
+    },
+    {
+      "naziv": "Latte Vanilla",
+      "opis": "Blag i aromatičan napitak s vanilijom.",
+      "cijena": "$11.49",
+      "slika": "images/vanilla_latte.png"
+    },
+    {
+      "naziv": "Mocha Delight",
+      "opis": "Čokoladna čarolija u šolji.",
+      "cijena": "$11.99",
+      "slika": "images/mocha.png"
+    }
+  ],
+  "best": [
+    {
+      "naziv": "House Blend",
+      "opis": "Naša najprodavanija kafa.",
+      "cijena": "$9.99",
+      "slika": "images/house_blend.png"
+    },
+    {
+      "naziv": "Dark Roast",
+      "opis": "Jaka i duboka aroma.",
+      "cijena": "$10.49",
+      "slika": "images/dark_roast.png"
+    },
+    {
+      "naziv": "Hazelnut Coffee",
+      "opis": "Ukus lješnjaka za sladokusce.",
+      "cijena": "$10.99",
+      "slika": "images/hazelnut.png"
+    },
+    {
+      "naziv": "Caramel Macchiato",
+      "opis": "Savršeno za ljubitelje karamela.",
+      "cijena": "$12.49",
+      "slika": "images/caramel_macchiato.png"
+    }
+  ],
+  "svi": [
+    {
+      "naziv": "Iced Coffee",
+      "opis": "Osvježavajuća ljetna kafa.",
+      "cijena": "$8.99",
+      "slika": "images/iced_coffee.png"
+    },
+    {
+      "naziv": "Turkish Coffee",
+      "opis": "Tradicionalna kafa s orijenta.",
+      "cijena": "$7.99",
+      "slika": "images/turkish.png"
+    },
+    {
+      "naziv": "Cold Brew",
+      "opis": "Hladno pripremljena za puniji ukus.",
+      "cijena": "$9.49",
+      "slika": "images/cold_brew.png"
+    },
+    {
+      "naziv": "Flat White",
+      "opis": "Elegantna i kremasta kafa.",
+      "cijena": "$10.29",
+      "slika": "images/flat_white.png"
+    }
+  ]
+}
