@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Korisnik</title>
+</head>
+<body>
+  <script>
+    const korisnik = JSON.parse(localStorage.getItem("korisnik"));
+    if (!korisnik || korisnik.role !== "user") {
+      window.location.href = "log-in.html";
+    }
+  </script>
+  <h1>Dobrodošao, korisniče!</h1>
+</body>
+</html>

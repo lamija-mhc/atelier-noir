@@ -2,29 +2,20 @@
 <html lang="sr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Registracija</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <div class="left">
-      <h1>Registruj se</h1>
-      <div class="form-wrapper">
-        <form>
-          <input type="text" placeholder="Ime" required>
-          <input type="text" placeholder="Prezime" required>
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Lozinka" required>
-          <button type="submit">Registruj se</button>
-        </form>
-        <div class="links">
-          Imaš nalog? <a href="log-in.html">Prijavi se</a>
-        </div>
-      </div>
-    </div>
-    <div class="right"></div>
+    <h1>Registracija</h1>
+    <form action="/register" method="POST">
+      <input type="text" name="ime" placeholder="Ime" required />
+      <input type="text" name="prezime" placeholder="Prezime" required />
+      <input type="email" name="username" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Lozinka" required />
+      <button type="submit">Registruj se</button>
+    </form>
+    <p>Već imaš nalog? <a href="log-in.html">Prijavi se</a></p>
   </div>
-  <script src="auth.js"></script>
 </body>
 </html>

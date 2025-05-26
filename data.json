@@ -129,13 +129,6 @@
       "gramaza": "200g",
       "cijena": "$12.50",
       "slika": "images/premium_chocolate_latte.png"
-    },
-    {
-      "naziv": "Premium Vanilla Latte",
-      "opis": "Nježna espresso vanila, savršen balans slatkoće i arome.",
-      "gramaza": "200g",
-      "cijena": "$12.50",
-      "slika": "images/premium_vanilla_latte.png"
     }
   ]
 }
