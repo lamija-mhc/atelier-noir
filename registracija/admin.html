@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Admin panel</title>
+  <link rel="stylesheet" href="admin.css" />
 </head>
 <body>
   <script>
@@ -11,6 +12,188 @@
       window.location.href = "log-in.html";
     }
   </script>
-  <h1>Dobrodošao, admin!</h1>
+
+  <div class="container">
+    <div class="left">
+      <h1>Dobrodošao, admin!</h1>
+
+      <section class="form-wrapper">
+        <h2>Dodaj novu kafu (dodaje se u "svi")</h2>
+        <form id="dodajForm">
+          <input type="text" id="naziv" placeholder="Naziv" required />
+          <input type="text" id="opis" placeholder="Opis" required />
+          <input type="text" id="gramaza" placeholder="Gramaža" required />
+          <input type="text" id="cijena" placeholder="Cena" required />
+          <input type="text" id="slika" placeholder="Putanja do slike" required />
+          <button type="submit">Dodaj</button>
+        </form>
+      </section>
+
+      <section class="section">
+        <h2>Preporučene kafe (max 4)</h2>
+        <div id="preporukeList" class="kafa-list"></div>
+      </section>
+
+      <section class="section">
+        <h2>Najbolje kafe (max 4)</h2>
+        <div id="bestList" class="kafa-list"></div>
+      </section>
+
+      <section class="section">
+        <h2>Sve kafe</h2>
+        <div id="sviList" class="kafa-list"></div>
+      </section>
+    </div>
+
+    <div class="right"></div>
+  </div>
+
+  <script>
+    // Elementi
+    const preporukeList = document.getElementById('preporukeList');
+    const bestList = document.getElementById('bestList');
+    const sviList = document.getElementById('sviList');
+    const dodajForm = document.getElementById('dodajForm');
+
+    async function dohvatiIPrikazi() {
+      const res = await fetch('/dohvatiKafu');
+      const data = await res.json();
+
+      renderKategoriju(preporukeList, data.preporuke, 'preporuke');
+      renderKategoriju(bestList, data.best, 'best');
+      renderSve(sviList, data.svi, data.preporuke, data.best);
+    }
+
+    function renderKategoriju(container, kafe, kategorija) {
+      container.innerHTML = '';
+      if (kafe.length === 0) {
+        container.textContent = 'Nema kafa u kategoriji.';
+        return;
+      }
+      kafe.forEach(kafa => {
+        const div = document.createElement('div');
+        div.className = 'kafa';
+        div.textContent = kafa.naziv;
+
+        const btnUkloni = document.createElement('button');
+        btnUkloni.textContent = 'Ukloni';
+        btnUkloni.onclick = () => ukloniIzKategorije(kategorija, kafa.naziv);
+
+        div.appendChild(btnUkloni);
+        container.appendChild(div);
+      });
+    }
+
+    function renderSve(container, kafe, preporuke, best) {
+      container.innerHTML = '';
+      if (kafe.length === 0) {
+        container.textContent = 'Nema kafa.';
+        return;
+      }
+
+      const setPreporuke = new Set(preporuke.map(k => k.naziv));
+      const setBest = new Set(best.map(k => k.naziv));
+
+      kafe.forEach(kafa => {
+        const div = document.createElement('div');
+        div.className = 'kafa';
+
+        const nazivSpan = document.createElement('span');
+        nazivSpan.textContent = kafa.naziv;
+        div.appendChild(nazivSpan);
+
+        if (!setPreporuke.has(kafa.naziv)) {
+          const btnDodajPreporuke = document.createElement('button');
+          btnDodajPreporuke.textContent = 'Dodaj u preporuke';
+          btnDodajPreporuke.onclick = () => dodajUKategoriju('preporuke', kafa.naziv);
+          btnDodajPreporuke.disabled = preporuke.length >= 4;
+          div.appendChild(btnDodajPreporuke);
+        } else {
+          const info = document.createElement('span');
+          info.textContent = ' (već u preporukama)';
+          info.style.marginLeft = '8px';
+          div.appendChild(info);
+        }
+
+        if (!setBest.has(kafa.naziv)) {
+          const btnDodajBest = document.createElement('button');
+          btnDodajBest.textContent = 'Dodaj u best';
+          btnDodajBest.onclick = () => dodajUKategoriju('best', kafa.naziv);
+          btnDodajBest.disabled = best.length >= 4;
+          div.appendChild(btnDodajBest);
+        } else {
+          const info = document.createElement('span');
+          info.textContent = ' (već u best)';
+          info.style.marginLeft = '8px';
+          div.appendChild(info);
+        }
+
+        container.appendChild(div);
+      });
+    }
+
+    dodajForm.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      const novaKafa = {
+        naziv: document.getElementById('naziv').value.trim(),
+        opis: document.getElementById('opis').value.trim(),
+        gramaza: document.getElementById('gramaza').value.trim(),
+        cijena: document.getElementById('cijena').value.trim(),
+        slika: document.getElementById('slika').value.trim()
+      };
+
+      try {
+        const res = await fetch('/upisi', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(novaKafa)
+        });
+        const data = await res.json();
+        if (data.success) {
+          alert('Kafa uspešno dodata!');
+          dodajForm.reset();
+          dohvatiIPrikazi();
+        } else {
+          alert('Greška: ' + data.message);
+        }
+      } catch (error) {
+        alert('Greška prilikom dodavanja.');
+      }
+    });
+
+    async function dodajUKategoriju(kategorija, naziv) {
+      try {
+        const res = await fetch('/dodajUKategoriju', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ kategorija, naziv })
+        });
+        const data = await res.json();
+        alert(data.message);
+        if (data.success) dohvatiIPrikazi();
+      } catch {
+        alert('Greška pri dodavanju u kategoriju.');
+      }
+    }
+
+    async function ukloniIzKategorije(kategorija, naziv) {
+      if (!confirm(`Da li ste sigurni da želite da uklonite "${naziv}" iz ${kategorija}?`)) return;
+      try {
+        const res = await fetch('/ukloniIzKategorije', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ kategorija, naziv })
+        });
+        const data = await res.json();
+        alert(data.message);
+        if (data.success) dohvatiIPrikazi();
+      } catch {
+        alert('Greška pri uklanjanju iz kategorije.');
+      }
+    }
+
+    dohvatiIPrikazi();
+  </script>
 </body>
 </html>
