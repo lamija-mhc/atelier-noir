@@ -46,12 +46,20 @@ app.post('/register', (req, res) => {
   }
 });
 
+// ... sve ostalo ostaje isto ...
+
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
   const result = loginUser(username, password);
 
   if (result.success) {
-    const redirectPage = result.role === 'admin' ? 'registracija/admin.html' : 'registracija/user.html';
+    let redirectPage;
+    if (result.role === 'admin') {
+      redirectPage = 'registracija/admin.html';
+    } else {
+      redirectPage = '/index.html'; // redirekcija na pocetnu stranicu
+    }
+
     res.send(`
       <script>
         localStorage.setItem('korisnik', JSON.stringify({ username: "${username}", role: "${result.role}" }));
@@ -62,6 +70,9 @@ app.post('/login', (req, res) => {
     res.send(`<script>alert("Pogrešan email ili lozinka!"); window.history.back();</script>`);
   }
 });
+
+// ... ostatak server.js ostaje isti ...
+
 
 // Putanja do data.json
 const dataPath = path.join(__dirname, '..', 'data.json');

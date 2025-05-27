@@ -5,5 +5,12 @@
     "ime": "Admin",
     "prezime": "Glavni",
     "role": "admin"
+  },
+  {
+    "username": "lamija@email.com",
+    "password": "lamija123",
+    "ime": "Lamija",
+    "prezime": "Mehić",
+    "role": "user"
   }
 ]
