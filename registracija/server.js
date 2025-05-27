@@ -3,9 +3,30 @@ const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const { registerUser, loginUser } = require('./auth');
+const multer = require('multer');
 
 const app = express();
+
+// Povećavamo limit veličine zahteva (body) na 10MB
+app.use(express.json({ limit: '100mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Ostali middlewares i rute idu posle ovoga
+
 const PORT = 3000;
+
+// Multer storage konfiguracija
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, '..', 'images')); // folder za slike
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const ext = path.extname(file.originalname);
+    cb(null, file.fieldname + '-' + uniqueSuffix + ext);
+  }
+});
+const upload = multer({ storage });
 
 // Parsiranje formi i JSON
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -59,26 +80,38 @@ app.get('/dohvatiKafu', (req, res) => {
 });
 
 // --- RUTA: Dodaj novu kafu u "svi" ---
-app.post('/upisi', (req, res) => {
-  const noviProizvod = req.body;
+// Izmenjena da prima upload slike
+app.post('/upisi', upload.single('slika'), (req, res) => {
+  try {
+    const { naziv, opis, gramaza, cijena } = req.body;
+    const slikaPutanja = req.file ? 'images/' + req.file.filename : null;
 
-  fs.readFile(dataPath, 'utf8', (err, data) => {
-    if (err) return res.status(500).json({ success: false, message: 'Greška pri čitanju fajla.' });
-
-    let jsonData;
-    try {
-      jsonData = JSON.parse(data);
-    } catch {
-      return res.status(500).json({ success: false, message: 'Greška pri parsiranju fajla.' });
+    if (!naziv || !opis || !gramaza || !cijena || !slikaPutanja) {
+      return res.status(400).json({ success: false, message: 'Svi podaci su obavezni, uključujući sliku!' });
     }
 
-    jsonData.svi.push(noviProizvod);
+    fs.readFile(dataPath, 'utf8', (err, data) => {
+      if (err) return res.status(500).json({ success: false, message: 'Greška pri čitanju fajla.' });
 
-    fs.writeFile(dataPath, JSON.stringify(jsonData, null, 2), (err) => {
-      if (err) return res.status(500).json({ success: false, message: 'Greška pri upisu.' });
-      res.json({ success: true, message: 'Proizvod je uspješno dodat.' });
+      let jsonData;
+      try {
+        jsonData = JSON.parse(data);
+      } catch {
+        return res.status(500).json({ success: false, message: 'Greška pri parsiranju fajla.' });
+      }
+
+      // Dodaj kaficu sa slikom u "svi"
+      jsonData.svi.push({ naziv, opis, gramaza, cijena, slika: slikaPutanja });
+
+      fs.writeFile(dataPath, JSON.stringify(jsonData, null, 2), (err) => {
+        if (err) return res.status(500).json({ success: false, message: 'Greška pri upisu.' });
+        res.json({ success: true, message: 'Proizvod je uspješno dodat sa slikom.' });
+      });
     });
-  });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Došlo je do greške na serveru.' });
+  }
 });
 
 // --- RUTA: Dodaj kaficu u kategoriju ("preporuke" ili "best") ---

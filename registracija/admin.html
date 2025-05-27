@@ -24,7 +24,7 @@
           <input type="text" id="opis" placeholder="Opis" required />
           <input type="text" id="gramaza" placeholder="Gramaža" required />
           <input type="text" id="cijena" placeholder="Cena" required />
-          <input type="text" id="slika" placeholder="Putanja do slike" required />
+          <input type="file" id="slika" accept="image/*" required />
           <button type="submit">Dodaj</button>
         </form>
       </section>
@@ -135,31 +135,51 @@
     dodajForm.addEventListener('submit', async e => {
       e.preventDefault();
 
-      const novaKafa = {
-        naziv: document.getElementById('naziv').value.trim(),
-        opis: document.getElementById('opis').value.trim(),
-        gramaza: document.getElementById('gramaza').value.trim(),
-        cijena: document.getElementById('cijena').value.trim(),
-        slika: document.getElementById('slika').value.trim()
+      const naziv = document.getElementById('naziv').value.trim();
+      const opis = document.getElementById('opis').value.trim();
+      const gramaza = document.getElementById('gramaza').value.trim();
+      const cijena = document.getElementById('cijena').value.trim();
+      const slikaInput = document.getElementById('slika');
+
+      if (slikaInput.files.length === 0) {
+        alert('Molimo izaberite sliku.');
+        return;
+      }
+
+      const file = slikaInput.files[0];
+
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const base64Slika = reader.result;
+
+        const novaKafa = {
+          naziv,
+          opis,
+          gramaza,
+          cijena,
+          slika: base64Slika
+        };
+
+        try {
+          const res = await fetch('/upisi', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(novaKafa)
+          });
+          const data = await res.json();
+          if (data.success) {
+            alert('Kafa uspešno dodata!');
+            dodajForm.reset();
+            dohvatiIPrikazi();
+          } else {
+            alert('Greška: ' + data.message);
+          }
+        } catch (error) {
+          alert('Greška prilikom dodavanja.');
+        }
       };
 
-      try {
-        const res = await fetch('/upisi', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(novaKafa)
-        });
-        const data = await res.json();
-        if (data.success) {
-          alert('Kafa uspešno dodata!');
-          dodajForm.reset();
-          dohvatiIPrikazi();
-        } else {
-          alert('Greška: ' + data.message);
-        }
-      } catch (error) {
-        alert('Greška prilikom dodavanja.');
-      }
+      reader.readAsDataURL(file);
     });
 
     async function dodajUKategoriju(kategorija, naziv) {
