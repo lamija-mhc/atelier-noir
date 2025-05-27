@@ -7,15 +7,20 @@
 </head>
 <body>
   <div class="container">
-    <h1>Registracija</h1>
-    <form action="/register" method="POST">
-      <input type="text" name="ime" placeholder="Ime" required />
-      <input type="text" name="prezime" placeholder="Prezime" required />
-      <input type="email" name="username" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Lozinka" required />
-      <button type="submit">Registruj se</button>
-    </form>
-    <p>Već imaš nalog? <a href="log-in.html">Prijavi se</a></p>
+    <div class="left">
+      <h1>Registracija</h1>
+      <form class="form-wrapper" action="/register" method="POST">
+        <input type="text" name="ime" placeholder="Ime" required />
+        <input type="text" name="prezime" placeholder="Prezime" required />
+        <input type="email" name="username" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Lozinka" required />
+        <button type="submit">Registruj se</button>
+      </form>
+      <div class="links">
+        <p>Već imaš nalog? <a href="log-in.html">Prijavi se</a></p>
+      </div>
+    </div>
+    <div class="right"></div>
   </div>
 </body>
 </html>
