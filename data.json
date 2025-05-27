@@ -22,11 +22,11 @@
       "slika": "images/premium_caramel_latte.png"
     },
     {
-      "naziv": "Medium Roast Colombian Whole",
-      "opis": "Izbalansirana i kremasta kolumbijska aroma.",
+      "naziv": "Dark Roast Colombian Ground",
+      "opis": "Slojevit i dugotrajan kolumbijski ukus.",
       "gramaza": "250g",
-      "cijena": "$11.00",
-      "slika": "images/mediumRST_colobian_whole.png"
+      "cijena": "$11.30",
+      "slika": "images/darkRST_colombian_groundbean.png"
     }
   ],
   "best": [
@@ -129,6 +129,13 @@
       "gramaza": "200g",
       "cijena": "$12.50",
       "slika": "images/premium_chocolate_latte.png"
+    },
+    {
+      "naziv": "Premium Vanilla Latte",
+      "opis": "Nježna espresso vanila, savršen balans slatkoće i arome.",
+      "gramaza": "250g",
+      "cijena": "$12.50",
+      "slika": "images/slika-1748346859089-929618806.png"
     }
   ]
 }
