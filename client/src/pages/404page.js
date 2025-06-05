@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FlyInSection from "../components/FlyInSection";
+
 
 const Page404 = () => (
-  <div style={{
+        <FlyInSection>
+    <div style={{
     textAlign: "center",
     padding: "100px 20px",
     fontFamily: "Arial, sans-serif",
@@ -30,6 +33,8 @@ const Page404 = () => (
       </button>
     </Link>
   </div>
+        </FlyInSection>
+
 );
 
 export default Page404;

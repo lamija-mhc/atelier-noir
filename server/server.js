@@ -94,8 +94,8 @@ app.post("/api/cart/:email", (req, res) => {
   }
 });
 
-app.delete("/api/cart/:email/:naziv", (req, res) => {
-  const { email, naziv } = req.params;
+app.delete("/api/cart/:email/:id", (req, res) => {
+  const { email, id } = req.params;
 
   try {
     const users = readJSON(USERS_PATH);
@@ -106,22 +106,41 @@ app.delete("/api/cart/:email/:naziv", (req, res) => {
     }
 
     const korpa = users[userIndex].korpa || [];
-
     console.log("Prije brisanja:", korpa.length);
 
-    users[userIndex].korpa = korpa.filter(p => p.naziv !== naziv);
+    users[userIndex].korpa = korpa.filter(p => String(p.id) !== id);
 
     console.log("Nakon brisanja:", users[userIndex].korpa.length);
 
     writeJSON(USERS_PATH, users);
 
-    res.json({ message: "Proizvod uklonjen iz korpe." });
+    res.json({ success: true, message: "Proizvod uklonjen iz korpe." });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Greška pri brisanju proizvoda iz korpe." });
   }
 });
 
+
+app.get("/api/cart/:email", (req, res) => {
+  const { email } = req.params;
+
+  try {
+    const users = readJSON(USERS_PATH);
+    const user = users.find(u => u.email === email);
+
+    if (!user) {
+      return res.status(404).json({ error: "Korisnik nije pronađen." });
+    }
+
+    res.json({
+      proizvodi: user.korpa || [],
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Greška pri učitavanju korpe." });
+  }
+});
 
 
 // --- PRODUCTS ---
@@ -131,12 +150,12 @@ const writeData = (data) => writeJSON(DATA_PATH, data);
 app.get("/api/products", (req, res) => {
   try {
     const data = readData();
-    const sviProizvodi = Object.values(data).flat(); // spaja sve nizove
-    res.json(sviProizvodi);
-  } catch {
+    res.json(data); // Vraća objekt sa kategorijama: svi, preporuke, best
+  } catch (err) {
     res.status(500).json({ error: "Greška pri čitanju proizvoda." });
   }
 });
+
 
 app.get("/api/products/:category", (req, res) => {
   try {
@@ -236,6 +255,81 @@ app.delete('/api/obrisi/:kategorija/:naziv', (req, res) => {
     res.status(500).json({ error: "Greška pri brisanju artikla." });
   }
 });
+
+// Učitaj proizvode iz data.json
+app.get("/api/products", (req, res) => {
+  try {
+    const data = readJSON(DATA_PATH);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: "Greška pri čitanju proizvoda." });
+  }
+});
+
+// Dodaj novi proizvod u 'svi'
+app.post("/api/products/svi", (req, res) => {
+  try {
+    const data = readJSON(DATA_PATH);
+    const novi = req.body;
+
+    // Provjera da li proizvod već postoji po nazivu
+    if (data.svi.find(p => p.naziv === novi.naziv)) {
+      return res.status(400).json({ error: "Proizvod već postoji." });
+    }
+
+    data.svi.push(novi);
+    writeJSON(DATA_PATH, data);
+    res.status(201).json({ message: "Proizvod dodat." });
+  } catch (err) {
+    res.status(500).json({ error: "Greška pri dodavanju proizvoda." });
+  }
+});
+
+// Dodaj proizvod u kategoriju (preporuke ili best)
+app.put("/api/dodaj/:kategorija", (req, res) => {
+  try {
+    const { kategorija } = req.params;
+    const proizvod = req.body;
+    const data = readJSON(DATA_PATH);
+
+    if (!data[kategorija]) {
+      return res.status(400).json({ error: "Nepoznata kategorija." });
+    }
+
+    if (data[kategorija].length >= 4) {
+      return res.status(400).json({ error: "Kategorija je puna." });
+    }
+
+    if (data[kategorija].some(p => p.naziv === proizvod.naziv)) {
+      return res.status(400).json({ error: "Proizvod već postoji u kategoriji." });
+    }
+
+    data[kategorija].push(proizvod);
+    writeJSON(DATA_PATH, data);
+    res.json({ message: "Proizvod dodat u kategoriju." });
+  } catch (err) {
+    res.status(500).json({ error: "Greška pri dodavanju u kategoriju." });
+  }
+});
+
+// Obriši proizvod iz određene kategorije
+app.delete("/api/obrisi/:kategorija/:naziv", (req, res) => {
+  try {
+    const { kategorija, naziv } = req.params;
+    const data = readJSON(DATA_PATH);
+
+    if (!data[kategorija]) {
+      return res.status(400).json({ error: "Nepoznata kategorija." });
+    }
+
+    data[kategorija] = data[kategorija].filter(p => p.naziv !== naziv);
+    writeJSON(DATA_PATH, data);
+    res.json({ message: "Proizvod obrisan." });
+  } catch (err) {
+    res.status(500).json({ error: "Greška pri brisanju." });
+  }
+});
+
 
 // --- START SERVER ---
 app.listen(PORT, () => console.log(`✅ Server radi na portu ${PORT}`));

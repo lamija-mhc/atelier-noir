@@ -1,11 +1,12 @@
 import React from "react";
 import "../css/style.css";
+import FlyInSection from "../components/FlyInSection.js";
 
 const ONama = () => {
   return (
     <>
 
-
+      <FlyInSection>
       <section className="nasa-prica-pozadina">
         <div className="hero-content">
           <img className="logo2" src="/images/logo2.png" alt="Logo 2" />
@@ -16,8 +17,8 @@ const ONama = () => {
             Strast prema kafi. Elegancija u svakoj šoljici.
           </p>
         </div>
-      </section>
-
+      </section></FlyInSection>
+      <FlyInSection>
       <section className="about-main">
         <div className="about-text">
           <h2>Od Bosne i Hercegovine do Etiopije</h2>
@@ -36,7 +37,7 @@ const ONama = () => {
           <img src="/images/roasting.jpg" alt="Proces prženja" />
           <img src="/images/kafa3.jpg" alt="Elegantna šoljica kafe" />
         </div>
-      </section>
+      </section></FlyInSection>
 
       <footer>
         <div className="footer-content">

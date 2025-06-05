@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../css/style.css";
+import FlyInSection from "../components/FlyInSection.js";
 
 const Kontakt = () => {
   const [ime, setIme] = useState("");
@@ -38,6 +39,7 @@ const Kontakt = () => {
 
   return (
     <>
+    <FlyInSection>
       <section className="contact">
         <div className="contact-content">
           <h2>Kontaktirajte nas</h2>
@@ -99,7 +101,7 @@ const Kontakt = () => {
             </form>
           </div>
         </div>
-      </section>
+      </section> </FlyInSection>
 
       {/* FOOTER */}
       <footer>

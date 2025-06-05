@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../css/korpa.css";
 
 const Korpa = () => {
   const [proizvodi, setProizvodi] = useState([]);
@@ -39,15 +40,13 @@ const Korpa = () => {
   }, [email]);
 
   const handleDelete = (id) => {
-    console.log("Brisanje proizvoda sa id:", id);
     fetch(`http://localhost:5000/api/cart/${email}/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Odgovor backend-a:", data);
         if (data.success) {
-          fetchCart(); // ponovo učitaj korpu
+          fetchCart();
         } else {
           alert("Brisanje nije uspjelo.");
         }
@@ -61,7 +60,6 @@ const Korpa = () => {
     navigate("/thank-you");
   };
 
-  // Izračun ukupne cijene
   const ukupno = proizvodi.reduce((sum, p) => {
     const cijenaBroj = parseFloat(p.cijena.replace("$", ""));
     return sum + cijenaBroj * (p.kolicina || 1);
@@ -71,40 +69,43 @@ const Korpa = () => {
   if (greska) return <p style={{ color: "red" }}>{greska}</p>;
 
   return (
-    <div className="korpa-container">
-      <h2>Korpa</h2>
-      <ul className="korpa-lista">
-        {proizvodi.length === 0 ? (
-          <li>Korpa je prazna</li>
-        ) : (
-          proizvodi.map((p) => (
-            <li key={p.id} className="korpa-stavka">
-              <img src={p.slika} alt={p.naziv} className="korpa-slika" />
-              <div className="korpa-info">
-                <p>
-                  {p.naziv} x {p.kolicina}
-                </p>
-                <p className="cijena">
-                  $
-                  {(parseFloat(p.cijena.replace("$", "")) * (p.kolicina || 1)).toFixed(2)}
-                </p>
-              </div>
-              <button className="delete-btn" onClick={() => handleDelete(p.id)}>
-                ✖
-              </button>
-            </li>
-          ))
-        )}
-      </ul>
+    <div
+      className="korpa-container"
+    >
+      <div className="korpa-content">
+        <h2>Korpa</h2>
+        <ul className="korpa-lista">
+          {proizvodi.length === 0 ? (
+            <li>Korpa je prazna</li>
+          ) : (
+            proizvodi.map((p) => (
+              <li key={p.id} className="korpa-stavka">
+                <img src={p.slika} alt={p.naziv} className="korpa-slika" />
+                <div className="korpa-info">
+                  <p>{p.naziv}</p>
+                  <p className="cijena">
+                    $
+                    {(
+                      parseFloat(p.cijena.replace("$", "")) *
+                      (p.kolicina || 1)
+                    ).toFixed(2)}
+                  </p>
+                </div>
+                <button className="delete-btn" onClick={() => handleDelete(p.id)}>✖</button>
+              </li>
+            ))
+          )}
+        </ul>
 
-      {proizvodi.length > 0 && (
-        <>
-          <div className="ukupno">Ukupno: ${ukupno.toFixed(2)}</div>
-          <button className="checkout-dugme" onClick={handleCheckout}>
-            Nastavi na plaćanje
-          </button>
-        </>
-      )}
+        {proizvodi.length > 0 && (
+          <>
+            <div className="ukupno">Ukupno: ${ukupno.toFixed(2)}</div>
+            <button className="checkout-dugme" onClick={handleCheckout}>
+              Nastavi na plaćanje
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 };

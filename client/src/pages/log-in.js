@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <div className="container">
-      <div className="left">
+      <div className="left" style={{ background: "black" }}>
         <div className="form-container">
           <h1>Prijava</h1>
           <form onSubmit={handleSubmit}>

@@ -38,11 +38,11 @@
       "slika": "images/mediumRST_braz_ground.png"
     },
     {
-      "naziv": "Premium Vanilla Latte",
-      "opis": "Nježna espresso vanila, savršen balans slatkoće i arome.",
-      "gramaza": "250g",
+      "naziv": "Premium Caramel Latte",
+      "opis": "Kremasti karamel spoj za uživanje u svakom gutljaju.",
+      "gramaza": "200g",
       "cijena": "$12.50",
-      "slika": "images/slika-1748346859089-929618806.png"
+      "slika": "images/premium_caramel_latte.png"
     },
     {
       "naziv": "Premium Chocolate Latte",
@@ -52,11 +52,11 @@
       "slika": "images/premium_chocolate_latte.png"
     },
     {
-      "naziv": "Premium Caramel Latte",
-      "opis": "Kremasti karamel spoj za uživanje u svakom gutljaju.",
-      "gramaza": "200g",
-      "cijena": "$12.50",
-      "slika": "images/premium_caramel_latte.png"
+      "naziv": "Dark Roast Ethiopian Whole",
+      "opis": "Bogata aroma tamne čokolade i začina.",
+      "gramaza": "250g",
+      "cijena": "$11.50",
+      "slika": "images/darkRST_ehtiopian_whole.png"
     }
   ],
   "svi": [

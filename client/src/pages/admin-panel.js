@@ -16,17 +16,18 @@ const AdminPanel = () => {
   const [best, setBest] = useState([]);
 
   // Učitaj podatke sa backend-a
-  const loadData = async () => {
-    try {
-      const res = await axios.get("http://localhost:5000/api/products");
-      setSvi(res.data.svi || []);
-      setPreporuke(res.data.preporuke || []);
-      setBest(res.data.best || []);
-    } catch (error) {
-      alert("Greška pri učitavanju podataka.");
-      console.error(error);
-    }
-  };
+const loadData = async () => {
+  try {
+    const res = await axios.get("http://localhost:5000/api/products");
+    console.log("API response:", res.data);
+    setSvi(Array.isArray(res.data.svi) ? res.data.svi : []);
+    setPreporuke(Array.isArray(res.data.preporuke) ? res.data.preporuke : []);
+    setBest(Array.isArray(res.data.best) ? res.data.best : []);
+  } catch (error) {
+    alert("Greška pri učitavanju podataka.");
+    console.error(error);
+  }
+};
 
   useEffect(() => {
     loadData();

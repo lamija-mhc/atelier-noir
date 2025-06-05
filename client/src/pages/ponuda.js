@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import data from "../data/data.json";
 import CoffeeCard from "../components/CoffeeCard";
+import FlyInSection from "../components/FlyInSection.js";
 
 const Ponuda = () => {
   const [prikaziSve, setPrikaziSve] = useState(false);
@@ -40,6 +41,7 @@ const handleAddToCart = async (proizvod, kolicina) => {
 
   return (
     <>
+    <FlyInSection>
       <section className="hero">
         <div className="hero-content">
           <img className="logo2" src="/images/logo2.png" alt="Atelier Noir Logo" />
@@ -50,8 +52,9 @@ const handleAddToCart = async (proizvod, kolicina) => {
             Izaberi kvalitet, uživaj u ritualu.
           </p>
         </div>
-      </section>
+      </section> </FlyInSection>
 
+      <FlyInSection>
       <section className="selection">
         <h2>Naše preporuke</h2>
         <img className="separator" src="/images/separator.png" alt="Separator" />
@@ -60,8 +63,9 @@ const handleAddToCart = async (proizvod, kolicina) => {
             <CoffeeCard key={index} proizvod={proizvod} onAddToCart={handleAddToCart} />
           ))}
         </div>
-      </section>
+      </section> </FlyInSection>
 
+      <FlyInSection>
       <section
         className="selection"
         style={{
@@ -88,8 +92,8 @@ const handleAddToCart = async (proizvod, kolicina) => {
             <CoffeeCard key={index} proizvod={proizvod} onAddToCart={handleAddToCart} />
           ))}
         </div>
-      </section>
-
+      </section> </FlyInSection>
+      <FlyInSection>
       <section
         className="selection"
         style={{
@@ -160,7 +164,7 @@ const handleAddToCart = async (proizvod, kolicina) => {
             Prikaži manje
           </button>
         )}
-      </section>
+      </section> </FlyInSection>
 
       <footer>
         <div className="footer-content">

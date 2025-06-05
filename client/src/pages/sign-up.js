@@ -41,7 +41,7 @@ const Signup = () => {
 
   return (
     <div className="container">
-      <div className="left">
+      <div className="left" style={{ background: "black" }}>
         <div className="form-container">
           <h1>Registracija</h1>
           <form onSubmit={handleSubmit}>

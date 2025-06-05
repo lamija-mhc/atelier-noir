@@ -10,7 +10,6 @@ const CoffeeCard = ({ proizvod, onAddToCart }) => {
       // Dodajemo jedinstveni ID na proizvod prije slanja u korpu
       const proizvodSaId = {
         ...proizvod,
-        kolicina: kolicinaInt,
         id: `${proizvod.naziv}-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
       };
       onAddToCart(proizvodSaId);
@@ -31,13 +30,6 @@ const CoffeeCard = ({ proizvod, onAddToCart }) => {
         <div className="card-bottom">
           <span className="cijena">{proizvod.cijena}</span>
           <div className="cart-actions">
-            <input
-              type="number"
-              min={1}
-              value={kolicina}
-              onChange={(e) => setKolicina(e.target.value)}
-              style={{ width: "60px", marginRight: "1rem" }}
-            />
             <button onClick={handleClick} className="btn btn-cart">
               +<FaShoppingCart />
             </button>

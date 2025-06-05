@@ -1,6 +1,5 @@
 import React from "react";
 import kafaImage from "../images/kafa3.jpg"; // prilagodi put prema stvarnoj lokaciji
-
 const ThankYou = () => {
   return (
     <div
@@ -8,6 +7,7 @@ const ThankYou = () => {
         display: "flex",
         height: "100vh",
         fontFamily: "Arial, sans-serif",
+        background: "#000"
       }}
     >
       {/* Lijeva polovina */}
