@@ -45,8 +45,8 @@ function useOnScreen() {
 function Home() {
   return (
     <div>
-      <FlyInSection>
         <section className="hero">
+          <FlyInSection>
           <div className="hero-content">
             <img className="logo2" src="./images/logo2.png" alt="Logo" />
             <h2 className="subtitle">
@@ -66,22 +66,22 @@ function Home() {
             </p>
             <Link to="/ponuda" className="btn primary">Istražite ponudu</Link>
           </div>
+          </FlyInSection>
         </section>
-      </FlyInSection>
 
-      <FlyInSection>
         <section className="selection">
+        <FlyInSection>
           <h2>Naša pažljivo odabrana selekcija</h2>
           <img className="separator" src="./images/separator.png" alt="Separator" />
           <div className="selection-slika">
             <img style={{ marginBottom: "2rem" }} src="images/selection.png" alt="Bosna i Hercegovina" />
           </div>
           <Link to="/ponuda" className="btn primary">Istražite ponudu</Link>
-        </section>
-      </FlyInSection>
+        </FlyInSection> </section>
+      
 
-      <FlyInSection>
-        <section className="about">
+        <section className="about">      
+          <FlyInSection>
           <h2>O nama</h2>
           <img src="./images/separator.png" alt="Separator" />
           <div className="about-content">
@@ -94,14 +94,13 @@ function Home() {
             <img src="images/farmer2.png" alt="Proizvođač kafe" />
           </div>
           <Link to="/o_nama" className="btn primary">Saznajte više</Link>
-        </section>
-      </FlyInSection>
+         </FlyInSection> </section>
+     
 
-      <FlyInSection>
         <section className="stats">
           <h2 className="stats-title">Atelier Noir u brojkama</h2>
           <img src="./images/separator.png" alt="Separator" />
-
+           <FlyInSection>
           <div className="stats-wrapper">
             <div className="stats-logo">
               <img src="images/logo2.png" alt="Atelier Noir logo" />
@@ -128,20 +127,20 @@ function Home() {
             </div>
           </div>
 
-          <div className="stats-call-to-action">
+          <div className="stats-call-to-action" style={{marginBottom:"5rem"}}>
             <p>Želite biti dio naše priče?</p>
             <Link to="/kontakt" className="btn primary">Kontaktirajte nas</Link>
-          </div>
+          </div> </FlyInSection>
         </section>
-      </FlyInSection>
+      
 
       {/* Footer */}
       <footer>
         <div className="footer-content">
           <div className="footer-column">
             <h4>Proizvodi</h4>
-            <p>Auctor volutpat</p>
-            <p>Fermentum turpis</p>
+            <p>Ethiopian</p>
+            <p>Brazilian</p>
           </div>
 
           <div className="footer-column">
@@ -170,17 +169,21 @@ function Home() {
 }
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")));
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const updatedUser = JSON.parse(localStorage.getItem("user"));
+      setUser(updatedUser);
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
 
   return (
     <Router>
-      <Navbar
-        isLoggedIn={isLoggedIn}
-        setIsLoggedIn={setIsLoggedIn}
-        isAdmin={isAdmin}
-        setIsAdmin={setIsAdmin}
-      />
+      <Navbar user={user} setUser={setUser} />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -2,8 +2,13 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  overflow: visible;
 }
+
+#root, body {
+  overflow: visible; /* ili ne postavljaj overflow */
+}
+
 
 .fly-in {
   opacity: 0;
@@ -23,7 +28,6 @@ body {
   background-color: #000;
   color: #f5f5f5;
   line-height: 1.6;
-  min-height: 100vh;
 }
 
 
@@ -38,11 +42,18 @@ main {
   align-items: center;
   padding: 1rem 3rem;
   background-color: rgba(0, 0, 0, 0.8);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;               /* dodano da se fiksira lijevo */
+  width: 100%;           /* da se širi cijelim ekranom */
+  box-sizing: border-box; /* da padding ne proširuje širinu */
   font-family: 'Playfair Display', serif;
   z-index: 1000;
   flex-wrap: wrap;
+  backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px); /* za Safari */
+background-color: rgba(0, 0, 0, 0.4); /* smanji malo ako želiš više "staklen" efekat */
+
 }
 
 .left-group {
@@ -141,10 +152,11 @@ main {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.97);
+    background-color: rgba(0, 0, 0, 0);
     padding: 1rem 2rem;
     margin-top: 1rem;
     animation: slideDown 0.3s ease-in-out;
+    align-items:center;
   }
 
   .navbar.active .nav-links,
@@ -163,7 +175,7 @@ main {
 
   .auth-buttons {
     gap: 0.5rem;
-    align-items: flex-start;
+    align-items:center;
   }
 
   .auth-buttons .btn {
@@ -191,7 +203,7 @@ main {
   background-size: cover;
   background-position: center;
   text-align: center;
-  padding: 10rem 2rem;
+  padding: 5rem 2rem;
 }
 
 
@@ -499,7 +511,6 @@ main {
   -webkit-line-clamp: 2; /* Trenutno potrebna */
   line-clamp: 2;      /* do 2 reda */
   -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .card-description {
@@ -792,7 +803,6 @@ footer {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: -10vh;
 }
 
 .nasa-prica-pozadina .hero-content {
@@ -817,7 +827,7 @@ footer {
 
 .contact {
   background: url('../images/pozadina1.png') no-repeat center center/cover;
-  padding: 4rem 2rem;
+  padding: 8rem 2rem;
   color: #f5f5f5;
   text-align: center;
 }

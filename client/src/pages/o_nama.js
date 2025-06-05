@@ -1,25 +1,30 @@
 import React from "react";
 import "../css/style.css";
 import FlyInSection from "../components/FlyInSection.js";
+import { ReactTyped } from 'react-typed';
 
 const ONama = () => {
   return (
     <>
 
-      <FlyInSection>
-      <section className="nasa-prica-pozadina">
+      
+      <section className="nasa-prica-pozadina"><FlyInSection>
         <div className="hero-content">
           <img className="logo2" src="/images/logo2.png" alt="Logo 2" />
           <h2 className="subtitle">Premium coffee · Est. 1921</h2>
-          <h1>Naša priča</h1>
+          <h1 style={{ fontFamily: "'Playfair Display', serif" }}><ReactTyped 
+                          strings={["Naša priča"]}
+                          typeSpeed={50}
+                          backSpeed={30}
+                        /></h1>
           <img className="separator" src="/images/separator.png" alt="Separator" />
           <p style={{ fontSize: "2rem", color: "#A38560" }}>
             Strast prema kafi. Elegancija u svakoj šoljici.
           </p>
-        </div>
-      </section></FlyInSection>
-      <FlyInSection>
-      <section className="about-main">
+        </div></FlyInSection>
+      </section>
+      
+      <section className="about-main"><FlyInSection>
         <div className="about-text">
           <h2>Od Bosne i Hercegovine do Etiopije</h2>
           <h2>biramo samo najbolje</h2>
@@ -36,15 +41,15 @@ const ONama = () => {
           <img src="/images/kasikakafe.jpg" alt="Kafa" />
           <img src="/images/roasting.jpg" alt="Proces prženja" />
           <img src="/images/kafa3.jpg" alt="Elegantna šoljica kafe" />
-        </div>
-      </section></FlyInSection>
+        </div></FlyInSection>
+      </section>
 
       <footer>
         <div className="footer-content">
           <div className="footer-column">
             <h4>Proizvodi</h4>
-            <p>Auctor volutpat</p>
-            <p>Fermentum turpis</p>
+            <p>Ethiopian</p>
+            <p>Brazilian</p>
           </div>
 
           <div className="footer-column">

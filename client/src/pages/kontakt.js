@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/style.css";
 import FlyInSection from "../components/FlyInSection.js";
+import { ReactTyped } from 'react-typed';
 
 const Kontakt = () => {
   const [ime, setIme] = useState("");
@@ -39,10 +40,14 @@ const Kontakt = () => {
 
   return (
     <>
-    <FlyInSection>
-      <section className="contact">
+    
+      <section className="contact"><FlyInSection>
         <div className="contact-content">
-          <h2>Kontaktirajte nas</h2>
+          <h1 style={{ fontFamily: "'Playfair Display', serif" }}><ReactTyped 
+                          strings={["Kontaktirajte nas"]}
+                          typeSpeed={50}
+                          backSpeed={30}
+                        /></h1>
           <img
             className="separator"
             src="/images/separator.png"
@@ -100,16 +105,16 @@ const Kontakt = () => {
               </button>
             </form>
           </div>
-        </div>
-      </section> </FlyInSection>
+        </div></FlyInSection>
+      </section> 
 
       {/* FOOTER */}
       <footer>
         <div className="footer-content">
           <div className="footer-column">
             <h4>Proizvodi</h4>
-            <p>Auctor volutpat</p>
-            <p>Fermentum turpis</p>
+            <p>Ethiopian</p>
+            <p>Brazilian</p>
           </div>
 
           <div className="footer-column">

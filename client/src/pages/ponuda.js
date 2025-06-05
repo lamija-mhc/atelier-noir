@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import data from "../data/data.json";
 import CoffeeCard from "../components/CoffeeCard";
 import FlyInSection from "../components/FlyInSection.js";
+import { ReactTyped } from 'react-typed';
 
 const Ponuda = () => {
   const [prikaziSve, setPrikaziSve] = useState(false);
@@ -41,31 +42,35 @@ const handleAddToCart = async (proizvod, kolicina) => {
 
   return (
     <>
-    <FlyInSection>
-      <section className="hero">
+    
+      <section className="hero"><FlyInSection>
         <div className="hero-content">
           <img className="logo2" src="/images/logo2.png" alt="Atelier Noir Logo" />
           <h2 className="subtitle">Premium coffee · Est. 1921</h2>
-          <h1>Naša ponuda</h1>
+          <h1 style={{ fontFamily: "'Playfair Display', serif" }}><ReactTyped 
+                          strings={["Naša ponuda"]}
+                          typeSpeed={50}
+                          backSpeed={30}
+                        /></h1>
           <img className="separator" src="/images/separator.png" alt="Separator" />
           <p style={{ fontSize: "2rem", color: "#A38560" }}>
             Izaberi kvalitet, uživaj u ritualu.
           </p>
-        </div>
-      </section> </FlyInSection>
+        </div></FlyInSection>
+      </section> 
 
-      <FlyInSection>
-      <section className="selection">
+      
+      <section className="selection"><FlyInSection>
         <h2>Naše preporuke</h2>
         <img className="separator" src="/images/separator.png" alt="Separator" />
         <div className="coffee-cards" id="recommended">
           {data.preporuke.map((proizvod, index) => (
             <CoffeeCard key={index} proizvod={proizvod} onAddToCart={handleAddToCart} />
           ))}
-        </div>
-      </section> </FlyInSection>
+        </div></FlyInSection>
+      </section> 
 
-      <FlyInSection>
+      
       <section
         className="selection"
         style={{
@@ -84,16 +89,15 @@ const handleAddToCart = async (proizvod, kolicina) => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-      >
+      ><FlyInSection>
         <h2>Best Selleri</h2>
         <img className="separator" src="/images/separator.png" alt="Separator" />
         <div className="coffee-cards" id="bestsellers">
           {data.best.map((proizvod, index) => (
             <CoffeeCard key={index} proizvod={proizvod} onAddToCart={handleAddToCart} />
           ))}
-        </div>
-      </section> </FlyInSection>
-      <FlyInSection>
+        </div></FlyInSection>
+      </section> 
       <section
         className="selection"
         style={{
@@ -109,7 +113,7 @@ const handleAddToCart = async (proizvod, kolicina) => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-      >
+      ><FlyInSection>
         <h2>Svi Proizvodi</h2>
         <img className="separator" src="/images/separator.png" alt="Separator" />
         <div className="coffee-cards" id="all-products">
@@ -164,14 +168,14 @@ const handleAddToCart = async (proizvod, kolicina) => {
             Prikaži manje
           </button>
         )}
-      </section> </FlyInSection>
+     </FlyInSection> </section> 
 
       <footer>
         <div className="footer-content">
           <div className="footer-column">
             <h4>Proizvodi</h4>
-            <p>Auctor volutpat</p>
-            <p>Fermentum turpis</p>
+            <p>Ethiopian</p>
+            <p>Brazilian</p>
           </div>
           <div className="footer-column">
             <h4>Get the app</h4>

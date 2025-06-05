@@ -81,7 +81,7 @@ const loadData = async () => {
   };
 
   return (
-    <div className="admin-panel" style={{ padding: "2rem" }}>
+    <div className="admin-panel" style={{ padding: "2rem", backgroundColor:"#000" }}>
       <h1>Admin panel - Dodaj novu kafu</h1>
       <form onSubmit={handleAddNew} style={{ maxWidth: "350px", marginBottom: "2rem" }}>
         <input

@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/style.css";
 
-const Navbar = () => {
-  const [user, setUser] = useState(null);
+const Navbar = ({ user, setUser }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Dodano
 
   const navigate = useNavigate();
-
+/*
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     setUser(storedUser);
@@ -20,7 +19,7 @@ const Navbar = () => {
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
-
+*/
   const handleLogout = () => {
     localStorage.removeItem("user");
     setUser(null);
@@ -54,7 +53,7 @@ const Navbar = () => {
       className="btn"
       onClick={closeMenu}
     >
-      {user.role === "admin" ? "Admin panel" : "Korpa"}
+      {user.role === "admin" ? "Admin" : "Korpa"}
     </Link>
     <button className="btn" onClick={handleLogout}>Odjavi se</button>
   </>

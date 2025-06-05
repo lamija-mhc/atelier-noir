@@ -20,6 +20,7 @@ body {
 }
 
 .left {
+  margin-top: 5rem;
   overflow-y: visible; /* nema scroll */
   max-height: none;
   height: auto;
@@ -37,6 +38,7 @@ body {
 h1 {
   font-size: 2rem;
   margin-bottom: 2rem;
+  margin-top: 4rem;
 }
 
 .form-wrapper {
@@ -142,4 +144,28 @@ button:hover {
 .kafa button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.kafa-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.kafa-list::-webkit-scrollbar-track {
+  background: #111;
+  border-radius: 5px;
+}
+
+.kafa-list::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 5px;
+}
+
+.kafa-list::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* Firefox podrška */
+.kafa-list {
+  scrollbar-width: thin;
+  scrollbar-color: #666 #111;
 }
