@@ -38,13 +38,6 @@
       "slika": "images/mediumRST_braz_ground.png"
     },
     {
-      "naziv": "Premium Caramel Latte",
-      "opis": "Kremasti karamel spoj za uživanje u svakom gutljaju.",
-      "gramaza": "200g",
-      "cijena": "$12.50",
-      "slika": "images/premium_caramel_latte.png"
-    },
-    {
       "naziv": "Premium Chocolate Latte",
       "opis": "Dekadentna čokoladna espresso fuzija za sladokusce.",
       "gramaza": "200g",
@@ -57,6 +50,13 @@
       "gramaza": "250g",
       "cijena": "$11.50",
       "slika": "images/darkRST_ehtiopian_whole.png"
+    },
+    {
+      "naziv": "Premium Caramel Latte",
+      "opis": "Kremasti karamel spoj za uživanje u svakom gutljaju.",
+      "gramaza": "200g",
+      "cijena": "$12.50",
+      "slika": "images/premium_caramel_latte.png"
     }
   ],
   "svi": [

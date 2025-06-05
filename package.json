@@ -5,7 +5,8 @@
   "scripts": {
     "client": "set NODE_OPTIONS=--openssl-legacy-provider && npm start --prefix client",
     "server": "node server/server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+      "ngrok": "ngrok http 5000"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
