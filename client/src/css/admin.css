@@ -1,171 +1,197 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
+/* admin.css */
 
 body {
-  background-color: #000;
-  color: white;
-  display: block;
-  height: 100vh;
-  overflow-y: auto;
-  height: auto;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #eee;
 }
 
-.container {
-  display: flex;
-  height: auto; /* ukloni fiksnu visinu da se prilagođava */
-}
-
-.left {
-  margin-top: 5rem;
-  overflow-y: visible; /* nema scroll */
-  max-height: none;
-  height: auto;
+.admin-panel {
+  margin: 0 auto;
+  margin: 4rem;
   padding: 2rem;
-  flex: 1;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
 }
 
-.right {
-  flex: 1;
-  min-height: 100vh;
-  background: url('../images/kafa3.jpg') no-repeat center center/cover;
-}
-
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 4rem;
-}
-
-.form-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 300px;
-}
-
-input[type="email"],
-input[type="password"],
-input[type="text"],
-button,
-.google-btn {
-  width: 100%;
-  padding: 0.75rem;
-  margin: 0.5rem 0;
-  border-radius: 5px;
-  border: 2px solid white;
-  background-color: transparent;
-  color: white;
-  font-weight: bold;
-}
-
-button:hover {
-  background-color: white;
-  color: black;
-  cursor: pointer;
-}
-
-.google-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.google-btn img {
-  width: 20px;
-  margin-right: 0.5rem;
-}
-
-.section {
-  width: 100%;
-  max-width: 600px;
-}
-
-.section h2 {
+/* Naslovi */
+.admin-panel h1,
+.admin-panel h2 {
+  color: #ffa500;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
-.kafa-list {
-  max-height: 200px;
-  overflow-y: auto;
-  border: 1px solid white;
-  padding: 0.5rem;
-  border-radius: 5px;
-  background-color: #111;
+/* Forma za dodavanje nove kafe */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background-color: #222;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.15);
 }
 
+form input[type="text"],
+form textarea {
+  background-color: #333;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: #eee;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  resize: vertical;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+  outline: none;
+  background-color: #444;
+}
+
+form button {
+  background-color: #ffa500;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.8rem;
+}
+
+form button:hover {
+  background-color: #ffb733;
+}
+
+/* Container za sekcije sa proizvodima */
+.container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Svaka sekcija (preporuke, best, svi) */
+.section {
+  background-color: #222;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.15);
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  max-height: 350px;
+}
+
+/* Lista kafa u svakoj sekciji */
+.kafa-list {
+  overflow-y: auto;
+  margin-top: 1rem;
+  flex-grow: 1;
+}
+
+/* Pojedinačni proizvod */
 .kafa {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #555;
-  padding: 8px 12px;
-  margin-bottom: 6px;
-  border-radius: 4px;
-  background-color: #222;
-  gap: 8px; /* Da bude razmaka između naziva i dugmadi */
+  background-color: #333;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+  color: #eee;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
 }
 
-.kafa span {
-  flex-grow: 1;
+.kafa:hover {
+  background-color: #444;
 }
 
-.kafa button {
-  width: auto;          /* ne zauzimaju celu širinu */
-  min-width: 80px;      /* minimum širina dugmeta */
-  padding: 4px 10px;    /* malo uže od prethodno */
-  margin-left: 8px;
-  background-color: transparent;
-  border: 1.5px solid white;
-  color: white;
-  border-radius: 3px;
+/* Dugmad kod proizvoda */
+.kafa-buttons button {
+  background-color: #ffa500;
+  border: none;
+  color: #222;
   font-weight: 600;
-  transition: 0.2s;
-  align-self: flex-end; /* desno poravnanje */
-}
-
-.kafa-buttons {
-  display: flex;
-  gap: 6px;
-  margin-left: auto;
-}
-
-.kafa button:hover:not(:disabled) {
-  background-color: white;
-  color: black;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
   cursor: pointer;
+  margin-left: 0.5rem;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
 }
 
-.kafa button:disabled {
-  opacity: 0.5;
+.kafa-buttons button:hover:not(:disabled) {
+  background-color: #ffb733;
+}
+
+.kafa-buttons button:disabled {
+  background-color: #666;
   cursor: not-allowed;
 }
 
-.kafa-list::-webkit-scrollbar {
+/* Poruke korisnika */
+.admin-panel > div:last-child {
+  margin-top: 3rem;
+}
+
+.admin-panel > div:last-child p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.admin-panel > div:last-child > div {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 1rem;
+}
+
+.admin-panel > div:last-child > div > div {
+  background-color: #111;
+  color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(255, 165, 0, 0.25);
+}
+
+.admin-panel > div:last-child > div > div button {
+  margin-top: 0.5rem;
+  background-color: #ffa500;
+  border: none;
+  color: #222;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-panel > div:last-child > div > div button:hover {
+  background-color: #ffb733;
+}
+
+/* Scrollbar stilovi za kafu liste i poruke */
+.kafa-list::-webkit-scrollbar,
+.admin-panel > div:last-child > div::-webkit-scrollbar {
   width: 8px;
 }
 
-.kafa-list::-webkit-scrollbar-track {
-  background: #111;
-  border-radius: 5px;
+.kafa-list::-webkit-scrollbar-thumb,
+.admin-panel > div:last-child > div::-webkit-scrollbar-thumb {
+  background-color: #ffa500;
+  border-radius: 10px;
 }
 
-.kafa-list::-webkit-scrollbar-thumb {
-  background: #666;
-  border-radius: 5px;
-}
-
-.kafa-list::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
-}
-
-/* Firefox podrška */
-.kafa-list {
-  scrollbar-width: thin;
-  scrollbar-color: #666 #111;
+.kafa-list::-webkit-scrollbar-track,
+.admin-panel > div:last-child > div::-webkit-scrollbar-track {
+  background-color: #222;
 }

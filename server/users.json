@@ -15,12 +15,20 @@
     "role": "guest",
     "korpa": [
       {
+        "naziv": "Dark Roast Ethiopian Whole",
+        "opis": "Bogata aroma tamne čokolade i začina.",
+        "gramaza": "250g",
+        "cijena": "$11.50",
+        "slika": "images/darkRST_ehtiopian_whole.png",
+        "id": "Dark Roast Ethiopian Whole-1749287404358-557"
+      },
+      {
         "naziv": "Premium Caramel Latte",
         "opis": "Kremasti karamel spoj za uživanje u svakom gutljaju.",
         "gramaza": "200g",
         "cijena": "$12.50",
         "slika": "images/premium_caramel_latte.png",
-        "id": "Premium Caramel Latte-1749287400754-343"
+        "id": "Premium Caramel Latte-1749291716922-476"
       },
       {
         "naziv": "Dark Roast Ethiopian Whole",
@@ -28,7 +36,7 @@
         "gramaza": "250g",
         "cijena": "$11.50",
         "slika": "images/darkRST_ehtiopian_whole.png",
-        "id": "Dark Roast Ethiopian Whole-1749287404358-557"
+        "id": "Dark Roast Ethiopian Whole-1749291721290-906"
       }
     ]
   }

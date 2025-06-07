@@ -15,6 +15,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import { ReactTyped } from 'react-typed';
 import "./css/style.css";
 import FlyInSection from "./components/FlyInSection";
+import Messages from "./pages/Messages";
 
 
 function useOnScreen() {

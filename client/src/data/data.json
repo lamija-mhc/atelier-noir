@@ -1,13 +1,6 @@
 {
   "preporuke": [
     {
-      "naziv": "Extra Roast Ethiopian Whole",
-      "opis": "Intenzivan i zemljani ukus sa luksuznim završetkom.",
-      "gramaza": "250g",
-      "cijena": "$12.00",
-      "slika": "images/extraRST_ehtiopian_whole.png"
-    },
-    {
       "naziv": "Premium Caramel Latte",
       "opis": "Kremasti karamel spoj za uživanje u svakom gutljaju.",
       "gramaza": "200g",
@@ -27,6 +20,13 @@
       "gramaza": "250g",
       "cijena": "$11.00",
       "slika": "images/darkRST_brazilian_ground.png"
+    },
+    {
+      "naziv": "Dark Roast Colombian Ground",
+      "opis": "Slojevit i dugotrajan kolumbijski ukus.",
+      "gramaza": "250g",
+      "cijena": "$11.30",
+      "slika": "images/darkRST_colombian_groundbean.png"
     }
   ],
   "best": [
