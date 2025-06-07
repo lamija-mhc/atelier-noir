@@ -1,0 +1,139 @@
+.kontakt {
+  background: url('../images/pozadina1.png') no-repeat center center/cover;
+  padding: 5rem 2rem;
+  color: #f5f5f5;
+}
+
+.kontakt .contact-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kontakt .contact-content h1 {
+  font-size: 3rem;
+  color: #A38560;
+  margin-bottom: 1rem;
+}
+
+.kontakt .contact-content p {
+  font-size: 1.1rem;
+  color: #e2e2e2;
+  margin-bottom: 3rem;
+}
+
+.kontakt .contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  align-items: stretch; /* bitno da iste visine budu */
+  min-height: 400px; /* možeš prilagoditi po želji */
+}
+
+.kontakt .contact-form {
+  flex: 1 1 400px;
+  max-width: 600px;
+  height: 100%; /* da popune visinu roditelja */
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.kontakt .contact-form {
+  background-color: rgba(20, 20, 20, 0.95);
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.kontakt .map-container {
+  flex: 1 1 400px;
+  min-height: 480px;
+  max-width: 600px;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.kontakt .map-container iframe {
+  flex-grow: 1;
+  width: 100%;
+  border: none;
+  display: block;
+}
+
+.kontakt .contact-form input,
+.kontakt .contact-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #1c1c1c;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.kontakt .contact-form input::placeholder,
+.kontakt .contact-form textarea::placeholder {
+  color: #aaa;
+}
+
+.kontakt .contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.kontakt .contact-form .btn.primary {
+  background-color: #A38560;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.kontakt .contact-form .btn.primary:hover {
+  background-color: transparent;
+  border: 2px solid #A38560;
+  color: #A38560;
+}
+
+.kontakt .contact-form p {
+  margin-top: -0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.kontakt .separator {
+  width: 120px;
+  margin: 1rem auto 2rem auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .kontakt .contact-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .kontakt .map-container,
+  .kontakt .contact-form {
+    width: 100%;
+    max-width: none;
+  }
+
+  .kontakt .contact-content h1 {
+    font-size: 2.2rem;
+  }
+}

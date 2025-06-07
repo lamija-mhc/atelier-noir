@@ -13,13 +13,13 @@ body {
   padding: 2rem;
   background-color: #1a1a1a;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+  box-shadow: 0 0 20px rgba(138, 90, 45, 0.3); /* smeđa sjena */
 }
 
 /* Naslovi */
 .admin-panel h1,
 .admin-panel h2 {
-  color: #ffa500;
+  color: #A38560;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -32,7 +32,7 @@ form {
   background-color: #222;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.15);
+  box-shadow: 0 0 10px rgba(138, 90, 45, 0.15);
 }
 
 form input[type="text"],
@@ -54,12 +54,12 @@ form textarea:focus {
 }
 
 form button {
-  background-color: #ffa500;
+  background-color: #552216;
   border: none;
   padding: 0.75rem;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #222;
+  color: #fff;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -67,7 +67,8 @@ form button {
 }
 
 form button:hover {
-  background-color: #ffb733;
+  background-color: #662b1e;
+  color: white;
 }
 
 /* Container za sekcije sa proizvodima */
@@ -83,7 +84,7 @@ form button:hover {
   background-color: #222;
   padding: 1rem 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.15);
+  box-shadow: 0 0 10px rgba(138, 90, 45, 0.15);
   flex: 1 1 300px;
   display: flex;
   flex-direction: column;
@@ -117,9 +118,9 @@ form button:hover {
 
 /* Dugmad kod proizvoda */
 .kafa-buttons button {
-  background-color: #ffa500;
+  background-color: #552216;
   border: none;
-  color: #222;
+  color: #fff;
   font-weight: 600;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
@@ -130,7 +131,7 @@ form button:hover {
 }
 
 .kafa-buttons button:hover:not(:disabled) {
-  background-color: #ffb733;
+  background-color: #662b1e;
 }
 
 .kafa-buttons button:disabled {
@@ -160,14 +161,14 @@ form button:hover {
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(255, 165, 0, 0.25);
+  box-shadow: 0 0 6px rgba(138, 90, 45, 0.25);
 }
 
 .admin-panel > div:last-child > div > div button {
   margin-top: 0.5rem;
-  background-color: #ffa500;
+  background-color: #552216;
   border: none;
-  color: #222;
+  color: #fff;
   font-weight: 600;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
@@ -176,7 +177,7 @@ form button:hover {
 }
 
 .admin-panel > div:last-child > div > div button:hover {
-  background-color: #ffb733;
+  background-color: #662b1e;
 }
 
 /* Scrollbar stilovi za kafu liste i poruke */
@@ -187,7 +188,7 @@ form button:hover {
 
 .kafa-list::-webkit-scrollbar-thumb,
 .admin-panel > div:last-child > div::-webkit-scrollbar-thumb {
-  background-color: #ffa500;
+  background-color: #A38560;
   border-radius: 10px;
 }
 

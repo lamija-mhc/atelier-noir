@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../css/style.css";
+import "../css/kontakt.css";
 import FlyInSection from "../components/FlyInSection.js";
 import { ReactTyped } from 'react-typed';
 
@@ -10,9 +10,7 @@ const Kontakt = () => {
   const [greska, setGreska] = useState("");
   const [uspjeh, setUspjeh] = useState("");
 
-  const validateEmail = (email) => {
-    return /\S+@\S+\.\S+/.test(email);
-  };
+  const validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,9 +30,7 @@ const Kontakt = () => {
     try {
       const res = await fetch("http://localhost:5000/api/poruke", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ime, email, poruka }),
       });
 
@@ -53,106 +49,35 @@ const Kontakt = () => {
   };
 
   return (
-    <>
-      <section className="contact">
-        <FlyInSection>
-          <div className="contact-content">
-            <h1 style={{ fontFamily: "'Playfair Display', serif" }}>
-              <ReactTyped
-                strings={["Kontaktirajte nas"]}
-                typeSpeed={50}
-                backSpeed={30}
-              />
-            </h1>
-            <img
-              className="separator"
-              src="/images/separator.png"
-              alt="Separator"
-            />
-            <p>
-              Imate pitanje ili želite sarađivati? Javite nam se putem forme ili
-              posjetite našu lokaciju.
-            </p>
+    <section className="kontakt">
+      <FlyInSection>
+        <div className="contact-content">
+          <h1 style={{ fontFamily: "'Playfair Display', serif" }}>
+            <ReactTyped strings={["Kontaktirajte nas"]} typeSpeed={50} backSpeed={30} />
+          </h1>
+          <img className="separator" src="/images/separator.png" alt="Separator" />
+          <p>Imate pitanje ili želite sarađivati? Javite nam se putem forme ili posjetite našu lokaciju.</p>
 
-            <div className="contact-wrapper">
-              <div className="map-container">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2870.090424983372!2d17.90580207582524!3d44.20509457369071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475eecf0d2507c69%3A0x47984bbce1b8dce1!2s%C5%A0trosmajerova%20ul.%2C%20Zenica%2072000!5e0!3m2!1sbs!2sba!4v1716631932049!5m2!1sbs!2sba"
-                  width="100%"
-                  height="300"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Mapa lokacije"
-                ></iframe>
-              </div>
-
-              <form className="contact-form" onSubmit={handleSubmit} noValidate>
-                <input
-                  type="text"
-                  placeholder="Vaše ime"
-                  value={ime}
-                  onChange={(e) => setIme(e.target.value)}
-                  required
-                />
-                <input
-                  type="email"
-                  placeholder="Vaš email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <textarea
-                  placeholder="Vaša poruka"
-                  rows="5"
-                  value={poruka}
-                  onChange={(e) => setPoruka(e.target.value)}
-                  required
-                ></textarea>
-
-                {greska && <p style={{ color: "#b51818" }}>{greska}</p>}
-                {uspjeh && <p style={{ color: "#157810" }}>{uspjeh}</p>}
-
-                <button type="submit" className="btn primary">
-                  Pošalji poruku
-                </button>
-              </form>
+          <div className="contact-wrapper">
+            <div className="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2870.090424983372!2d17.90580207582524!3d44.20509457369071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475eecf0d2507c69%3A0x47984bbce1b8dce1!2s%C5%A0trosmajerova%20ul.%2C%20Zenica%2072000!5e0!3m2!1sbs!2sba!4v1716631932049!5m2!1sbs!2sba"></iframe>
             </div>
-          </div>
-        </FlyInSection>
-      </section>
 
-      <footer>
-        <div className="footer-content">
-          <div className="footer-column">
-            <h4>Proizvodi</h4>
-            <p>Ethiopian</p>
-            <p>Brazilian</p>
-          </div>
+            <form className="contact-form" onSubmit={handleSubmit} noValidate>
+              <input type="text" placeholder="Vaše ime" value={ime} onChange={(e) => setIme(e.target.value)} required />
+              <input type="email" placeholder="Vaš email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <textarea placeholder="Vaša poruka" rows="5" value={poruka} onChange={(e) => setPoruka(e.target.value)} required></textarea>
 
-          <div className="footer-column">
-            <h4>Get the app</h4>
-            <div className="app-icons">
-              <img src="/images/appstore.png" alt="App Store" />
-              <img src="/images/googleplay.png" alt="Google Play" />
-            </div>
-          </div>
+              {greska && <p style={{ color: "#b51818" }}>{greska}</p>}
+              {uspjeh && <p style={{ color: "#157810" }}>{uspjeh}</p>}
 
-          <div className="footer-column">
-            <h4>Kontaktirajte nas</h4>
-            <p>ateliernoir@gmail.com</p>
-            <p>+387 62 848 557</p>
-            <p>Štrosmajerova, Zenica</p>
+              <button type="submit" className="btn primary">Pošalji poruku</button>
+            </form>
           </div>
         </div>
-
-        <div className="bottom-footer">
-          <img src="/images/logo3.png" alt="Atelier Noir Logo" />
-          <p>© 2025 Atelier Noir. All rights reserved.</p>
-        </div>
-      </footer>
-    </>
+      </FlyInSection>
+    </section>
   );
 };
 

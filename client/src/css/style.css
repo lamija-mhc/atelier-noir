@@ -295,11 +295,7 @@ background-color: rgba(0, 0, 0, 0.4); /* smanji malo ako želiš više "staklen"
   margin-right: auto;
 }
 
-@media (max-width: 768px) {
-  .selection-slika {
-    width: 100%;
-  }
-}
+
 
 .coffee-cards {
   display: flex;
@@ -832,69 +828,3 @@ footer {
   font-size: 1.5rem;
   color: #ccc;
 }
-
-
-
-
-
-.contact {
-  background: url('../images/pozadina1.png') no-repeat center center/cover;
-  padding: 8rem 2rem;
-  color: #f5f5f5;
-  text-align: center;
-}
-
-.contact-content h2 {
-  font-size: 2.5rem;
-  color: #A38560;
-  margin-bottom: 1rem;
-}
-
-.contact-content p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-}
-
-.contact-wrapper {
-  display: flex;
-  gap: 3rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.map-container {
-  flex: 1 1 300px;
-  max-width: 600px;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.contact-form {
-  flex: 1 1 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin-top: 1rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 0.75rem 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #1c1c1c;
-  color: #fff;
-  font-family: inherit;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #aaa;
-}
-
-.contact-form button {
-  align-self: flex-start;
-}
-
