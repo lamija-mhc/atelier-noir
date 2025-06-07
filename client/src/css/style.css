@@ -277,6 +277,7 @@ background-color: rgba(0, 0, 0, 0.4); /* smanji malo ako želiš više "staklen"
   text-align: center;
   padding: 4rem 2rem;
   background-color: #000;
+  width:100%;
 }
 
 .selection h2 {
@@ -285,8 +286,19 @@ background-color: rgba(0, 0, 0, 0.4); /* smanji malo ako želiš više "staklen"
   font-size: 2.5rem;
 }
 
-.selection-slika{
+.selection-slika {
   align-self: center;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .selection-slika {
+    width: 100%;
+  }
 }
 
 .coffee-cards {

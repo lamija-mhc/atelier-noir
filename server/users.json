@@ -2,7 +2,7 @@
   {
     "ime": "Admin",
     "prezime": "Korisnik",
-    "email": "admin@site.com",
+    "email": "admin@atelier-noir.com",
     "lozinka": "admin123",
     "role": "admin",
     "korpa": []
@@ -10,7 +10,7 @@
   {
     "ime": "lamija",
     "prezime": "mehic",
-    "email": "lamija@mehic.com",
+    "email": "lamija@atelier-noir.com",
     "lozinka": "lamija123",
     "role": "guest",
     "korpa": [
@@ -20,57 +20,15 @@
         "gramaza": "200g",
         "cijena": "$12.50",
         "slika": "images/premium_caramel_latte.png",
-        "id": "Premium Caramel Latte-1749129796409-961"
-      }
-    ]
-  },
-  {
-    "ime": "Niko",
-    "prezime": "Nikić",
-    "email": "niko@nikic.com",
-    "lozinka": "niko123",
-    "role": "guest",
-    "korpa": [
-      {
-        "naziv": "Premium Caramel Latte",
-        "opis": "Kremasti karamel spoj za uživanje u svakom gutljaju.",
-        "gramaza": "200g",
-        "cijena": "$12.50",
-        "slika": "images/premium_caramel_latte.png",
-        "id": "Premium Caramel Latte-1749131852093-198"
+        "id": "Premium Caramel Latte-1749287400754-343"
       },
       {
-        "naziv": "Dark Roast Brazilian Ground",
-        "opis": "Odvažan ukus s notama kakaa za ljubitelje tamnih kafa.",
+        "naziv": "Dark Roast Ethiopian Whole",
+        "opis": "Bogata aroma tamne čokolade i začina.",
         "gramaza": "250g",
-        "cijena": "$11.00",
-        "slika": "images/darkRST_brazilian_ground.png",
-        "id": "Dark Roast Brazilian Ground-1749131856037-891"
-      }
-    ]
-  },
-  {
-    "ime": "lara",
-    "prezime": "suljević",
-    "email": "lara@gmail.com",
-    "lozinka": "lara123",
-    "role": "guest",
-    "korpa": [
-      {
-        "naziv": "Dark Roast Colombian Ground",
-        "opis": "Slojevit i dugotrajan kolumbijski ukus.",
-        "gramaza": "250g",
-        "cijena": "$11.30",
-        "slika": "images/darkRST_colombian_groundbean.png",
-        "id": "Dark Roast Colombian Ground-1749140123494-679"
-      },
-      {
-        "naziv": "Premium Vanilla Latte",
-        "opis": "Nježna espresso vanila, savršen balans slatkoće i arome.",
-        "gramaza": "250g",
-        "cijena": "$12.50",
-        "slika": "images/slika-1748346859089-929618806.png",
-        "id": "Premium Vanilla Latte-1749140127486-722"
+        "cijena": "$11.50",
+        "slika": "images/darkRST_ehtiopian_whole.png",
+        "id": "Dark Roast Ethiopian Whole-1749287404358-557"
       }
     ]
   }
