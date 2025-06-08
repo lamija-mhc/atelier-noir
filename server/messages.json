@@ -1,8 +1,16 @@
-[  {
+[
+  {
     "id": 1749299306480,
     "ime": "Bill Gates",
     "email": "the.real.bill@microsoft.com",
     "poruka": "Najbolja kafa ikad!!!",
     "datum": "2025-06-07T12:28:26.480Z"
+  },
+  {
+    "id": 1749419529490,
+    "ime": "Edin Džeko",
+    "email": "dzeko@fenerbahce.tr",
+    "poruka": "Bolja od zlatne dzezve",
+    "datum": "2025-06-08T21:52:09.491Z"
   }
 ]

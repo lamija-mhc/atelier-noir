@@ -40,9 +40,9 @@ const Signup = () => {
   };
 
   return (
-    <div className="container">
-      <div className="left" style={{ background: "black" }}>
-        <div className="form-container">
+    <div className="signup-container">
+      <div className="signup-left" style={{ background: "black" }}>
+        <div className="signup-form-container">
           <h1>Registracija</h1>
           <form onSubmit={handleSubmit}>
             <input
@@ -74,14 +74,14 @@ const Signup = () => {
               required
             />
             <button type="submit">Registruj se</button>
-            {greska && <p className="error">{greska}</p>}
+            {greska && <p className="signup-error">{greska}</p>}
           </form>
-          <div className="links">
+          <div className="signup-links">
             <Link to="/login">Već imate nalog? Prijavite se</Link>
           </div>
         </div>
       </div>
-      <div className="right"></div>
+      <div className="signup-right"></div>
     </div>
   );
 };

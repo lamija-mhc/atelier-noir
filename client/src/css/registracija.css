@@ -12,17 +12,17 @@ body {
   min-height: 100vh;
 }
 
-.container {
+.signup-container {
   display: flex;
   width: 100%;
   min-height: 100vh;
 }
 
-.left, .right {
+.signup-left, .signup-right {
   flex: 1;
 }
 
-.left {
+.signup-left {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +35,7 @@ h1 {
   margin-bottom: 2rem;
 }
 
-.form-container {
+.signup-form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,25 +74,25 @@ button:hover {
   margin-right: 0.5rem;
 }
 
-.links {
+.signup-links {
   margin-top: 1rem;
   font-size: 0.9rem;
   color: #999;
   text-align: center;
 }
 
-.links a {
+.signup-links a {
   color: #00aaff;
   text-decoration: none;
   display: block;
   margin-top: 0.5rem;
 }
 
-.right {
+.signup-right {
   background: url('../images/kafa3.jpg') no-repeat center center/cover;
 }
 
-.error {
+.signup-error {
   color: red;
   margin-top: 0.5rem;
   font-size: 0.9rem;
