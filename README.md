@@ -1,126 +1,136 @@
-Dokumentacija DWS
+Dokumentacija DWS: Atelier Noir
+1. Uvod / Opis Projekta
+Projekt "Atelier Noir" predstavlja web aplikaciju posvećenu jedinstvenom doživljaju rituala ispijanja kafe, gdje se spajaju kultura, elegancija i autentičnost. Brend "Atelier Noir" njeguje ideju da kafa nije samo napitak, već iskustvo koje povezuje različite krajeve svijeta.
 
-ATELIER NOIR 
+Aplikacija omogućava korisnicima da pregledaju i naruče specijalitete iz svjetski poznatih regija poput Kolumbije, Etiopije, Brazila i drugih. Pored toga, sustav omogućava administratorima upravljanje proizvodima, sadržajem i korisničkim interakcijama, čime se osigurava dinamičan i učinkovit način vođenja online prodaje.
 
-1. UVOD / OPIS PROJEKTA
-        Projekat pod nazivom "Atelier Noir" predstavlja razvoj web aplikacije posvećene jedinstvenom doživljaju rituala ispijanja kafe, gdje se spajaju kultura, elegancija i autentičnost. Brend "Atelier Noir" njeguje ideju da kafa nije samo napitak, već iskustvo koje povezuje različite krajeve svijeta.
-        Aplikacija omogućava korisnicima da pregledaju i naruče specijalitete iz svjetski poznatih regija poput Kolumbije, Etiopije, Brazila i drugih. Pored toga, sistem omogućava administratorima upravljanje proizvodima, sadržajem i korisničkim interakcijama, čime se obezbjeđuje dinamičan i efikasan način vođenja online prodaje.
-        Cilj projekta je kreirati modernu, responzivnu i funkcionalnu platformu koja će korisnicima ponuditi jednostavno i estetski privlačno iskustvo naručivanja, a administratorima olakšati upravljanje sadržajem i narudžbama.
+Cilj projekta je kreirati modernu, responzivnu i funkcionalnu platformu koja će korisnicima ponuditi jednostavno i estetski privlačno iskustvo naručivanja, a administratorima olakšati upravljanje sadržajem i narudžbama.
 
-2. KORIŠTENE TEHNOLOGIJE
-        Za izradu web aplikacije Atelier Noir korišten je skup savremenih web tehnologija koje omogućavaju jednostavno održavanje i lokalno testiranje funkcionalnosti. Projekat je razvijen kao client-server arhitektura, pri čemu frontend i backend komuniciraju putem HTTP zahtjeva.
-        Frontend aplikacije je razvijen pomoću React.js, uz korištenje biblioteke React Router za upravljanje navigacijom između različitih stranica. Komponente su organizovane unutar foldera:
-src/components – za višekratne komponente (navigacija, kartice, dugmad),
-src/pages – za pojedinačne stranice (Home, About, Products, itd.),
+2. Korištene Tehnologije i Arhitektura
+Za izradu web aplikacije "Atelier Noir" korišten je skup suvremenih web tehnologija koje omogućavaju jednostavno održavanje i lokalno testiranje funkcionalnosti. Projekt je razvijen kao client-server arhitektura, pri čemu frontend i backend komuniciraju putem HTTP zahtjeva koristeći fetch i axios za asinkrone operacije.
+
+Frontend
+Frontend aplikacija je razvijena pomoću React.js, uz korištenje biblioteke React Router za upravljanje navigacijom između različitih stranica. Komponente su organizirane unutar logičkih foldera:
+
+src/components – za višekratne komponente (navigacija, kartice, gumbi).
+src/pages – za pojedinačne stranice (Home, About, Products, itd.).
 src/assets – slike, stilovi i ostali statički resursi.
-Kao jednostavno rješenje za simulaciju REST API-ja, korišten je JSON-server, gdje se datoteka db.json koristi kao baza podataka. Omogućava operacije poput GET, POST, PUT i DELETE, što je dovoljno za potrebe ovog projekta.
-Node.js i npm korišteni su za upravljanje paketima i pokretanje lokalnih servera.
-Frontend server pokreće se na portu 3000, dok se backend server (JSON-server) pokreće na portu 5000, čime se omogućava paralelni razvoj i testiranje klijentske i serverske strane.
+Frontend server pokreće se na portu 3000.
 
-3. FUNKCIONALNOSTI
-        Web aplikacija Atelier Noir obuhvata niz funkcionalnosti koje omogućavaju interakciju korisnika sa sistemom u skladu s njihovom ulogom (gost ili administrator). Sistem je razvijen s fokusom na jednostavnost korištenja, intuitivnu navigaciju i osnovne funkcije neophodne za online naručivanje proizvoda.
-        Login i registracija korisnika sa validacijom unesenih podataka.
-Implementirana je podjela korisničkih uloga:
-Gost ima pristup pregledavanju proizvoda, dodavanju u korpu i slanju poruka.
-Administrator ima dodatne privilegije kao što su dodavanje i uređivanje proizvoda.
-        Korisnici mogu dodavati proizvode u korpu, odabrati količinu i pregledati ukupnu cijenu.
-Omogućeno je brisanje stavki iz korpe i dinamičko ažuriranje prikaza.
-        Proizvodi su prikazani prema unaprijed definisanim kategorijama, čime se korisnicima olakšava navigacija i pretraga ponude.
-        Administrator može dodavati nove proizvode, kao i uređivati ili brisati postojeće, čime se omogućava aktivno upravljanje ponudom.
-        Aplikacija sadrži kontakt formu s validacijom unosa, putem koje korisnici mogu slati poruke ili upite.
-        Na stranici se koristi Google Maps iframe komponenta koja prikazuje fizičku lokaciju brenda, čime se povećava transparentnost i povjerenje korisnika.
+Backend
+Backend je pokrenut pomoću Node.js. Kao jednostavno rješenje za simulaciju REST API-ja, korišten je JSON-server, gdje se datoteka db.json koristi kao baza podataka. Omogućava operacije poput GET, POST, PUT i DELETE, što je dovoljno za potrebe ovog projekta.
 
-4. ULOGE KORISNIKA
+Backend server (JSON-server) pokreće se na portu 5000.
 
-        Definisale smo dvije glavne korisničke uloge: gost i administrator. Svaka uloga ima određene privilegije i pristup funkcijama u skladu sa svojom svrhom korištenja aplikacije.
-        Korisnik koji nema administratorske privilegije ima pristup sljedećim funkcionalnostima:
--Pregled dostupnih proizvoda i kategorija.
--Dodavanje proizvoda u korpu i pregled izabrane količine i ukupne cijene.
--Slanje poruka putem kontakt forme.
-        Korisnik sa dodatnim pravima u odnosu na gosta. Ima pristup svim funkcijama gosta, uz sljedeće dodatne mogućnosti:
--Dodavanje novih proizvoda.
--Uređivanje i brisanje postojećih proizvoda.
--Upravljanje kategorijama proizvoda (kreiranje, izmjena i brisanje).
-        Ova podjela omogućava sigurnu i organizovanu upotrebu aplikacije, gdje administratori imaju potpunu kontrolu nad sadržajem, dok gosti imaju jednostavno i intuitivno korisničko iskustvo.
+Upravljanje Paketima i Alatima
+Node.js i npm (Node Package Manager) korišteni su za upravljanje paketima i pokretanje lokalnih servera. Za istovremeno pokretanje frontenda i backenda koristi se biblioteka concurrently.
 
-5. DIZAJN
-        Vizualni identitet aplikacije Atelier Noir pažljivo je osmišljen kako bi pratio vrijednosti brenda – eleganciju, prefinjenost i kulturu kafe. Fokus je stavljen na estetiku koja odražava luksuz, ali i na dostupnost i funkcionalnost za sve korisnike.
-        Korištene su tamne, sofisticirane boje poput crne, smeđe i zlatne, koje evociraju atmosferu luksuznih kafeterija. Paleta je birana tako da zadrži visok kontrast, čime se osigurava dobra čitljivost i za korisnike sa smanjenim sposobnostima percepcije boja.
-        Proizvodi su predstavljeni kroz moderne i pregledne "coffee cards" koje sadrže naziv, opis, cijenu i dugme za dodavanje u korpu.
-        Svi elementi su dizajnirani s pažnjom na jednostavnu upotrebu – jasno označena dugmad, vidljive informacije, intuitivna navigacija.
-        Aplikacija je u potpunosti responsive, što znači da se njen izgled i funkcionalnost automatski prilagođavaju različitim veličinama ekrana – od desktop računara do mobilnih uređaja.
-        Korišteni su moderni i čitljivi fontovi, koji doprinose jasnoći prikaza i estetskoj dosljednosti dizajna.
-Ovdje idu screenshotovi : Početna stranica, Login forma, Stranica sa proizvodima, Korpa, Kontakt forma.
+Struktura Projekta
+Projekt je podijeljen u dva glavna direktorija:
 
-6. STRUKTURA BAZE
-        Za potrebe ovog projekta koristi se JSON-server koji omogućava simulaciju jednostavne baze podataka korištenjem lokalne .json datoteke. Struktura baze organizovana je u nekoliko osnovnih kolekcija koje odgovaraju funkcionalnostima aplikacije:
-1. users - sadrži podatke o registrovanim korisnicima, odnosno e-mail, lozinku i ulogu adresu korisnika.
-2. products - sadrži sve proizvode koji su dostupni za pregled i kupovinu. U to spadaju: ID, naziv proizvoda, kratak opis, cijena proizvoda, URL slike proizvoda, kategorija kojoj proizvod pripada
-3. cart - predstavlja sadržaj korpe za svakog korisnika, preciznije ID korisnika te lista proizvoda sa količinama i cijenama
-4. messages - sadrži poruke koje korisnici šalju putem kontakt forme. Njihovi podaci poput ID-a, emaila, imena te same poruke.
+client: Sadrži svu frontend logiku i React aplikaciju. Unutar njega se nalaze standardni React folderi kao što su public i src.
+server: Sadrži backend logiku i db.json datoteku koja služi kao baza podataka.
+3. Funkcionalnosti Aplikacije
+Web aplikacija "Atelier Noir" obuhvaća niz funkcionalnosti koje omogućuju interakciju korisnika sa sustavom u skladu s njihovom ulogom (gost ili administrator). Sustav je razvijen s fokusom na jednostavnost korištenja, intuitivnu navigaciju i osnovne funkcije neophodne za online naručivanje proizvoda.
 
-- users: email, lozinka, uloga.
-- proizvodi: naziv, opis, cijena, slika, kategorija.
-- korpa: proizvodi po korisniku.
-- poruke: kontakt poruke.
+Login i registracija korisnika: Implementirana je robustna validacija unesenih podataka za siguran pristup.
+Podjela korisničkih uloga:
+Gost: Ima pristup pregledavanju proizvoda, dodavanju u korpu i slanju poruka.
+Administrator: Ima dodatne privilegije kao što su dodavanje i uređivanje proizvoda, te upravljanje kategorijama.
+Upravljanje korpom: Korisnici mogu dodavati proizvode u korpu, odabrati količinu i pregledati ukupnu cijenu. Omogućeno je brisanje stavki iz korpe i dinamičko ažuriranje prikaza.
+Pregled proizvoda po kategorijama: Proizvodi su prikazani prema unaprijed definiranim kategorijama, čime se korisnicima olakšava navigacija i pretraga ponude.
+Administracija proizvoda: Administrator može dodavati nove proizvode, kao i uređivati ili brisati postojeće, čime se omogućuje aktivno upravljanje ponudom.
+Kontakt forma: Aplikacija sadrži kontakt formu s validacijom unosa, putem koje korisnici mogu slati poruke ili upite.
+Integracija Google Maps: Na stranici se koristi Google Maps iframe komponenta koja prikazuje fizičku lokaciju brenda, čime se povećava transparentnost i povjerenje korisnika.
+4. Uloge Korisnika
+Definirane su dvije glavne korisničke uloge: Gost i Administrator. Svaka uloga ima određene privilegije i pristup funkcijama u skladu sa svojom svrhom korištenja aplikacije.
 
-7. INSTALACIJA I POKRETANJE
-Za lokalno pokretanje aplikacije Atelier Noir, potrebno je imati instalirane Node.js i npm te pratiti sljedeće korake:
-1. Kloniranje repozitorija
-git clone <repo-url>
+Gost: Korisnik bez administratorskih privilegija ima pristup sljedećim funkcionalnostima:
 
-2. Ulazak u projektni direktorij
+Pregled dostupnih proizvoda i kategorija.
+Dodavanje proizvoda u korpu i pregled izabrane količine i ukupne cijene.
+Slanje poruka putem kontakt forme.
+Administrator: Korisnik s dodatnim pravima u odnosu na gosta. Ima pristup svim funkcijama gosta, uz sljedeće dodatne mogućnosti:
+
+Dodavanje novih proizvoda.
+Uređivanje i brisanje postojećih proizvoda.
+Upravljanje kategorijama proizvoda (kreiranje, izmjena i brisanje).
+Ova podjela omogućava sigurnu i organiziranu upotrebu aplikacije, gdje administratori imaju potpunu kontrolu nad sadržajem, dok gosti imaju jednostavno i intuitivno korisničko iskustvo.
+
+5. Dizajn i Korisničko Iskustvo
+Vizualni identitet aplikacije "Atelier Noir" pažljivo je osmišljen kako bi pratio vrijednosti brenda – eleganciju, prefinjenost i kulturu kafe. Fokus je stavljen na estetiku koja odražava luksuz, ali i na dostupnost i funkcionalnost za sve korisnike.
+
+Paleta Boja: Korištene su tamne, sofisticirane boje poput crne, smeđe i zlatne, koje evociraju atmosferu luksuznih kafeterija. Paleta je birana tako da zadrži visok kontrast, čime se osigurava dobra čitljivost i za korisnike sa smanjenim sposobnostima percepcije boja.
+Prikaz Proizvoda: Proizvodi su predstavljeni kroz moderne i pregledne "coffee cards" koje sadrže naziv, opis, cijenu i dugme za dodavanje u korpu.
+Intuitivno Korisničko Sučelje: Svi elementi su dizajnirani s pažnjom na jednostavnu upotrebu – jasno označena dugmad, vidljive informacije, intuitivna navigacija.
+Responsivni Dizajn: Aplikacija je u potpunosti responzivna, što znači da se njen izgled i funkcionalnost automatski prilagođavaju različitim veličinama ekrana – od desktop računala do mobilnih uređaja.
+Tipografija: Korišteni su moderni i čitljivi fontovi, koji doprinose jasnoći prikaza i estetskoj dosljednosti dizajna.
+6. Struktura Baze Podataka (db.json)
+Za potrebe ovog projekta koristi se JSON-server koji omogućava simulaciju jednostavne baze podataka korištenjem lokalne .json datoteke. Struktura baze organizirana je u nekoliko osnovnih kolekcija koje odgovaraju funkcionalnostima aplikacije:
+
+users: Sadrži podatke o registriranim korisnicima, odnosno email, lozinku, i ulogu (npr. "gost", "administrator").
+products: Sadrži sve proizvode koji su dostupni za pregled i kupovinu. Uključuje: ID, naziv proizvoda, kratak opis, cijena proizvoda, URL slike proizvoda, kategoriju kojoj proizvod pripada.
+cart: Predstavlja sadržaj korpe za svakog korisnika, preciznije ID korisnika te listu proizvoda sa količinama i cijenama.
+messages: Sadrži poruke koje korisnici šalju putem kontakt forme. To uključuje ID, email, ime pošiljatelja te samu poruku.
+7. Instalacija i Pokretanje Aplikacije
+Za lokalno pokretanje aplikacije "Atelier Noir", potrebno je imati instalirane Node.js i npm. Slijedite sljedeće korake:
+
+Kloniranje repozitorija:
+
+Bash
+
+git clone <URL_VASEG_REPOZITORIJA>
+Ulazak u projektni direktorij:
+
+Bash
+
 cd atelier-noir
+Instalacija svih potrebnih paketa:
+Ovo će instalirati ovisnosti i za frontend i za backend.
 
-3. Instalacija potrebnih paketa
+Bash
+
 npm install
+Pokretanje frontenda i backenda istovremeno:
+Koristimo concurrently kako bismo istovremeno pokrenuli i frontend (React aplikaciju) i backend (JSON-server).
 
-4. Pokretanje JSON-servera (simulacija backend API-ja)
-npx json-server --watch db.json --port 5000
-Ova komanda pokreće backend na adresi: http://localhost:5000
+Bash
 
-5. Pokretanje React frontend aplikacije
-U novom terminalu:
-npm start
+npm run dev
+Nakon izvršenja ove komande, dogodit će se sljedeće:
 
-Aplikacija će se automatski otvoriti u pretraživaču na adresi:
-http://localhost:3000
+Backend (JSON-server) će se pokrenuti na adresi: http://localhost:5000
+Frontend (React aplikacija) će se pokrenuti na adresi: http://localhost:3000
+Aplikacija će se automatski otvoriti u vašem preferiranom web pregledniku.
 
-8. SCREENSHOTOVI
-bit ce ovdje
+8. Screenshotovi
+Ovdje će biti dodani vizualni prikazi ključnih dijelova aplikacije:
 
-9. DOPRINOS ČLANOVA 
-        Projekat Atelier Noir razvijen je timski, kroz saradnju i podjelu odgovornosti u skladu s interesima i vještinama članica. Sve faze – od idejne koncepcije do implementacije – realizovane su zajednički, uz jasno definisane pojedinačne doprinose.
+Početna stranica
+Login forma
+Stranica s proizvodima
+Korpa
+Kontakt forma
+9. Doprinos Članova Tima
+Projekt "Atelier Noir" razvijen je timski, kroz suradnju i podjelu odgovornosti u skladu s interesima i vještinama članica. Sve faze – od idejne koncepcije do implementacije – realizirane su zajednički, uz jasno definirane pojedinačne doprinose.
 
 Lamija Mehić
-        Radila na frontend implementaciji stranica:
-Početna (Home)
-Korpa (Cart)
+
+Radila na frontend implementaciji stranica: Početna (Home) i Korpa (Cart).
 Učestvovala u testiranju funkcionalnosti i prilagođavanju dizajna u završnoj fazi.
-
 Dženana Šehić
-        Implementirala stranice za autentikaciju korisnika:
-Login
-Signup
-Profil korisnika
+
+Implementirala stranice za autentikaciju korisnika: Login, Signup i Profil korisnika.
 Dodatno radila na povezivanju sa backendom i validaciji podataka.
-
 Amina Kahrimanović
-        Inicijalno doprinijela vizuelnom identitetu projekta – izbor naziva, boja i osnovnog estetskog pravca.
+
+Inicijalno doprinijela vizualnom identitetu projekta – izbor naziva, boja i osnovnog estetskog pravca.
 Učestvovala u izradi Figma prototipa, zajedno s ostatkom tima.
-Implementirala frontend kod za stranice:
-O nama
-Kontakt
+Implementirala frontend kod za stranice: O nama i Kontakt.
+Zajednički rad:
+Dizajn prototipa aplikacije razvijan je zajednički u Figmi, gdje su sve tri članice aktivno učestvovale. Nakon izrade pojedinačnih stranica, ostatak projekta (funkcionalnosti korpe, autentikacija, administracija proizvoda, integracija backend servisa i testiranje) razvijan je timski, uz ravnomjernu podjelu rada i međusobnu pomoć.
 
-Zajednički rad
+10. Zaključak
+Kroz ovaj projekt tim je uspješno prošao sve faze razvoja od početnog dizajna, preko frontend i backend implementacije, do funkcionalnog prototipa koji omogućava naručivanje proizvoda, korisničku registraciju i administraciju sadržaja.
 
-Dizajn prototipa aplikacije razvijan je zajednički u Figmi, gdje su sve tri članice aktivno učestvovale.
-Nakon izrade pojedinačnih stranica, ostatak projekta (funkcionalnosti korpe, autentikacija, administracija proizvoda, integracija backend servisa i testiranje) razvijan je timski, uz ravnomjernu podjelu rada i međusobnu pomoć.
-
-	10.	ZAKLJUČAK
-
-        Kroz ovaj projekat tim je uspješno prošao sve faze razvoja od početnog dizajna, preko frontend i backend implementacije, do funkcionalnog prototipa koji omogućava naručivanje proizvoda, korisničku registraciju i administraciju sadržaja.
-        Projekat je omogućio članicama tima da praktično primijene znanja iz oblasti web razvoja, timske koordinacije i dizajna korisničkog interfejsa. Posebna pažnja posvećena je estetici, pristupačnosti i modularnosti koda, čime je postavljen dobar temelj za eventualno proširenje funkcionalnosti u budućnosti.
-       
-
-
+Projekt je omogućio članicama tima da praktično primijene znanja iz oblasti web razvoja, timske koordinacije i dizajna korisničkog sučelja. Posebna pažnja posvećena je estetici, pristupačnosti i modularnosti koda, čime je postavljen dobar temelj za eventualno proširenje funkcionalnosti u budućnosti.

@@ -29,6 +29,39 @@
         "cijena": "$11.30",
         "slika": "images/darkRST_colombian_groundbean.png",
         "id": "Dark Roast Colombian Ground-1749378633538-38"
+      },
+      {
+        "naziv": "Premium Chocolate Latte",
+        "opis": "Dekadentna čokoladna espresso fuzija za sladokusce.",
+        "gramaza": "200g",
+        "cijena": "$12.50",
+        "slika": "images/premium_chocolate_latte.png",
+        "id": "Premium Chocolate Latte-1749552133706-285"
+      },
+      {
+        "naziv": "Dark Roast Brazilian Ground",
+        "opis": "Odvažan ukus s notama kakaa za ljubitelje tamnih kafa.",
+        "gramaza": "250g",
+        "cijena": "$11.00",
+        "slika": "images/darkRST_brazilian_ground.png",
+        "id": "Dark Roast Brazilian Ground-1749552210715-79"
+      }
+    ]
+  },
+  {
+    "ime": "user",
+    "prezime": "1",
+    "email": "user@user.com",
+    "lozinka": "user123",
+    "role": "guest",
+    "korpa": [
+      {
+        "naziv": "Dark Roast Colombian Ground",
+        "opis": "Slojevit i dugotrajan kolumbijski ukus.",
+        "gramaza": "250g",
+        "cijena": "$11.30",
+        "slika": "images/darkRST_colombian_groundbean.png",
+        "id": "Dark Roast Colombian Ground-1749552301316-440"
       }
     ]
   }
