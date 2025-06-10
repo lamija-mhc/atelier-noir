@@ -130,7 +130,7 @@ json
 1. Klonirajte repozitorij:
 
 bash
-git clone <URL_VAŠEG_REPOZITORIJA>
+git clone (https://github.com/lamija-mhc/atelier-noir)
 
 
 2. Uđite u projektni direktorij:
