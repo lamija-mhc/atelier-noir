@@ -1,13 +1,6 @@
 {
   "preporuke": [
     {
-      "naziv": "Premium Caramel Latte",
-      "opis": "Kremasti karamel spoj za uživanje u svakom gutljaju.",
-      "gramaza": "200g",
-      "cijena": "$12.50",
-      "slika": "images/premium_caramel_latte.png"
-    },
-    {
       "naziv": "Premium Vanilla Latte",
       "opis": "Nježna espresso vanila, savršen balans slatkoće i arome.",
       "gramaza": "250g",
@@ -27,6 +20,13 @@
       "gramaza": "250g",
       "cijena": "$11.30",
       "slika": "images/darkRST_colombian_groundbean.png"
+    },
+    {
+      "naziv": "Premium Chocolate Latte",
+      "opis": "Dekadentna čokoladna espresso fuzija za sladokusce.",
+      "gramaza": "200g",
+      "cijena": "$12.50",
+      "slika": "images/premium_chocolate_latte.png"
     }
   ],
   "best": [
